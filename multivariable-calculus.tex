@@ -1,0 +1,315 @@
+
+\documentclass[letterpaper,oneside]{book}%
+
+\usepackage[left=1in,right=2.75in,top=1in,bottom=1in]{geometry}
+\marginparwidth 1.75in
+
+\usepackage{tabls}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{pstricks}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{makeidx}
+\usepackage{index}
+\usepackage{tikz}
+\usetikzlibrary{positioning,matrix,arrows,calc}
+\tikzset{every picture/.style={>=latex,thick}}
+\tikzset{grid lines/.style={semithick,dotted}}
+
+
+\newcommand{\myscale}{1}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\dfdx}[1]{\frac{d#1}{dx}}
+\newcommand{\ddx}{\frac{d}{dx}}
+
+
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar{\raggedright\footnotesize #1}}
+%\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]{\raggedright\footnotesize #1}}
+
+\renewcommand{\thefootnote}{\roman{footnote}}
+\newcommand{\note}[1]{\footnote{#1}\marginpar{\fbox{\textbf{\thefootnote}}}}
+%%%%%%%To make all notes ignored, uncomment the following command.
+\renewcommand{\note}[1]{}
+
+%\usepackage[12hr]{datetime}
+%\newdateformat{draftdate}{%
+%\shortdayofweekname{\THEDAY}{\THEMONTH}{\THEYEAR}, %
+%\THEDAY\ \shortmonthname[\THEMONTH] \THEYEAR}
+%\draftdate
+%\usepackage{eso-pic}
+%\AddToShipoutPicture{\put(10,10){\small Draft: \today\ at \currenttime }}%--- version: \MakeUppercase{\svnInfoRevision}}}
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheoremstyle{box}%
+{}{}% standard spacing before and after
+{}% Body style
+{}{\bfseries}{.}% Heading indent, font, and punctuation
+{ }% space after heading
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3}}% head spec
+
+
+\theoremstyle{box}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem*{definition*}{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{example}{Example}[chapter]
+\newtheorem{question}{Question}[chapter]
+\newtheorem*{prep-problems}{Preparation Problems}
+
+\newcommand{\define}[2][]{\textit{#2}\index{#1#2}}
+\newcommand{\definemargin}[2][]{\marginpar{#2}\define[#1]{#2}}
+
+
+
+% Abbreviations
+
+\newcommand{\ii}{\ensuremath{\mathbf{\hat \i}}}
+\newcommand{\jj}{\ensuremath{\mathbf{\hat \j}}}
+\newcommand{\kk}{\ensuremath{\mathbf{\hat k}}}
+\newcommand{\vv}{\ensuremath{\mathbf{v}}}
+\newcommand{\colvec}[1]{\ensuremath{\begin{bmatrix}#1\end{bmatrix}}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\rref}{rref}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\curl}{curl}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+%The purpose of this code is to allow me to put lines in matrices so that I can create augmented matrices.
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\cl}[1]{  \begin{matrix}  #1  \end{matrix}  }
+\newcommand{\bm}[1]{  \begin{bmatrix}  #1  \end{bmatrix}  }
+\newcommand{\inv}{^{-1}}
+\newcommand{\im}{\ensuremath{\text{im }}}
+\newcommand{\R}{\mathbb{R}}
+\providecommand{\norm}[1]{\lVert#1\rVert} 
+
+
+%------------------------------------------------------------------------------------------------------------
+
+\usepackage{hyperref}
+\makeindex
+
+\begin{document}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+
+\frontmatter
+\title{Multivariable Calculus}
+\author{Ben Woodruff\thanks{Mathematics Faculty at Brigham Young
+    University--Idaho, \url{woodruffb@byui.edu}} \and Jason
+  Grout\thanks{\mbox{Mathematics Faculty at Drake University, Des Moines,
+    IA, \url{jason.grout@drake.edu}}}}
+\date{Typeset on \today\\
+\vfill
+\includegraphics[height=1.3cm]{by-sa}
+\vfill}
+\maketitle
+\thispagestyle{empty}
+
+\noindent\copyright{ 2010 Ben Woodruff and Jason Grout.  Some Rights Reserved.\\
+
+\bigskip
+
+\noindent Except where otherwise noted, this work is licensed under the Creative Commons
+Attribution-ShareAlike 3.0 United States License. To view a copy of
+this license, visit 
+\begin{center}
+  \url{http://creativecommons.org/licenses/by-sa/3.0/us/}
+\end{center}
+or send a letter to Creative Commons, 171 Second Street, Suite 300,
+San Francisco, California, 94105, USA.
+
+\bigskip
+
+\noindent Please attribute this work to:
+\smallskip
+
+Ben Woodruff, Mathematics Faculty at Brigham Young University--Idaho,
+ \url{woodruffb@byui.edu}, and
+
+\smallskip
+
+ Jason Grout, Mathematics Faculty at Drake University, Des Moines, IA,
+ \url{jason.grout@drake.edu}.
+
+\vfill 
+
+The source for this work is available at \url{http://github.com/jasongrout/multivariable-calculus}.
+\vfill
+}
+\restoregeometry
+\tableofcontents
+
+
+
+%\chapter*{Preface}
+%
+%I would like to thank BYU-Idaho for the resources they have provided me to create this text.  
+
+%\chapter{Introduction}
+%
+%The introduction is entered using the usual chapter command. Since
+%the introduction chapter appears before the \verb|mainmatter| TeX
+%field, it is again an unnumbered chapter. The primary difference
+%between the preface and the introduction in this sample document
+%is that the introduction will appear in the table of contents and
+%the page headings for the introduction are automatically handled
+%without the need for the \verb|markboth| TeX field. You may use
+%either or both methods to create chapters at the beginning of your
+%document. You may also delete these preliminary chapters.
+
+
+
+
+
+\mainmatter
+
+\include{01-Curves-Coordinates-Differentials/Curves-Coordinates-Differentials}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+\include{01-Curves-Coordinates-Differentials/Curves-Coordinates-Differentials-Problems}
+\restoregeometry
+
+
+\include{02-Vectors/Vectors}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+\include{02-Vectors/Vectors-Problems}
+\restoregeometry
+
+
+%\include{01-Arithmetic/Arithmetic}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{01-Arithmetic/Arithmetic-Problems}
+%\restoregeometry
+%\include{02-Applications/Linear-Algebra-Applications}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{02-Applications/Linear-Algebra-Applications-Problems}
+%\restoregeometry
+%\include{03-Patterns/Patterns}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{03-Patterns/Patterns-problems}
+%\restoregeometry
+%\include{04-Linear-Transformations/Linear-Transformations}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{04-Linear-Transformations/Linear-Transformations-Problems}
+%\restoregeometry
+%\include{07-Inner-Products/Inner-Products}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{07-Inner-Products/Inner-Products-Problems}
+%\restoregeometry
+%\include{05-Changing-Bases/Changing-Bases}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{05-Changing-Bases/Changing-Bases-Problems}
+%\restoregeometry
+%\include{06-Jordan-Form/Jordan-Form}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{06-Jordan-Form/Jordan-Form-Problems}
+%\restoregeometry
+%\include{08-Symmetric-Matrices/Symmetric-Matrices}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{08-Symmetric-Matrices/Symmetric-Matrices-Problems}
+%\restoregeometry
+%\include{09-Connections/Connections}
+%\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+%\include{09-Connections/Connections-Problems}
+%\restoregeometry
+
+
+
+%\backmatter
+
+\printindex
+
+
+
+
+
+
+
+
+%\appendix
+%
+%\chapter{The First Appendix}
+%
+%The \verb"\appendix" command should be used only once. Subsequent appendices can
+%be created using the Chapter command.
+%
+%\chapter{The Second Appendix}
+%
+%Some text for the second Appendix.
+%
+%This text is a sample for a short bibliography. You can cite a book by making use of
+%the command \verb"\cite{KarelRektorys}": \cite{KarelRektorys}. Papers can be cited
+%similarly: \cite{Bertoti97}. If you want multiple citations to appear in a single set
+%of square brackets you must type all of the citation keys inside a single citation,
+%separating each with a comma. Here is an example: \cite{Bertoti97, Szeidl2001,
+%Carlson67}.
+%
+%\begin{thebibliography}{9}
+%\bibitem {KarelRektorys}Rektorys, K., \textit{Variational methods in Mathematics,
+%Science and Engineering}, D. Reidel Publishing Company,
+%Dordrecht-Hollanf/Boston-U.S.A., 2th edition, 1975
+%
+%\bibitem {Bertoti97} \textsc{Bert\'{o}ti, E.}:\ \textit{On mixed variational formulation
+%of linear elasticity using nonsymmetric stresses and displacements}, International
+%Journal for Numerical Methods in Engineering., \textbf{42}, (1997), 561-578.
+%
+%\bibitem {Szeidl2001} \textsc{Szeidl, G.}:\ \textit{Boundary integral equations for
+%plane problems in terms of stress functions of order one}, Journal of Computational and
+%Applied Mechanics, \textbf{2}(2), (2001), 237-261.
+%
+%\bibitem {Carlson67}  \textsc{Carlson D. E.}:\ \textit{On G\"{u}nther's stress functions
+%for couple stresses}, Quart. Appl. Math., \textbf{25}, (1967), 139-146.
+%\end{thebibliography}
+%
+
+
+%\backmatter
+
+%
+%\chapter{Afterword}
+%
+%The back matter often includes one or more of an index, an afterword,
+%acknowledgements, a bibliography, a colophon, or any other similar item. In
+%the back matter, chapters do not produce a chapter number, but they are
+%entered in the table of contents. If you are not using anything in the back
+%matter, you can delete the back matter TeX field and everything that follows it.
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

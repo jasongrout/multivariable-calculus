@@ -1,0 +1,23 @@
+# Ignore tex auxillary files
+*.aux
+*.log
+*.bbl
+*.blg
+*.toc
+*.sout
+*.out
+*.nav
+*.snm
+*.tmp
+*.vrb
+*.DS_Store
+*.dvi
+*.idx
+
+# Ignore editor backup files
+*~
+\#*\#
+.\#*
+
+# Ignore the emacs auto directories
+auto
