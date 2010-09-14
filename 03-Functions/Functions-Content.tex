@@ -19,24 +19,52 @@ straight line in a fixed direction.  The curve through which the lines
 are drawn is called a generating curve for the cylinder. The
 intersection of a cylinder with a coordinate plane is called a
 \emph{cross-section} or a \emph{trace}. Some examples of cylinders are
-below, where the generating curve is in bold.
-\newcommand{\mywidth}{1.0in}
+below, and one of the generating curves is shown.  Try drawing the
+other generating curves.
+\renewcommand{\mywidth}{1.0in}
 \begin{center}
-\begin{tabular}{cccc}
-\includegraphics[width=\mywidth]{functions/cylinder-1}&
-\includegraphics[width=\mywidth]{functions/cylinder-2}&
-\includegraphics[width=\mywidth]{functions/cylinder-3}&
-\includegraphics[width=\mywidth]{functions/cylinder-4}
-\\
+\begin{tabular}{ccccc}
+\tikzsetfigurename{cylinder-}
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40, colormap/blackwhite,xlabel=$x$,ylabel=$y$] 
+   \addplot3[surf,domain=-2:2,y domain=-4:4] (x,x^2,y); 
+   % Turn on this when pgfplots has true z-buffering
+   %\addplot3[domain=-2:2,samples y=0, smooth,ultra thick] (x, x^2, 0);
+ \end{axis} 
+\end{tikzpicture}&
+
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40,colormap/blackwhite,xlabel=$x$,ylabel=$y$] 
+    \addplot3[surf,domain=-pi:pi,y domain=-2:2] (x,y,{sin(deg(x))}); 
+\end{axis} 
+\end{tikzpicture}\\
 $y=x^2$ &
-$z=\sin(x)$ &
+$z=\sin(x)$ \\[0.5cm]
+
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40,colormap/blackwhite,xlabel=$x$,ylabel=$y$] 
+    \addplot3[surf,domain=-2:2,y domain=-pi/2:pi/2] (x,{tan(deg(y))},y); 
+    \addplot3[domain=-pi/2:pi/2,samples y=0, smooth,ultra thick] (0, {tan(deg(x))}, x);
+  \end{axis} 
+\end{tikzpicture}&
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40,colormap/blackwhite,xlabel=$x$,ylabel=$y$] 
+    \addplot3[surf,domain=0:2*pi,y domain=-2:2] ({cos(deg(x))},{sin(deg(x))},y); 
+  \end{axis} 
+\end{tikzpicture}&
+
+%\includegraphics[width=\mywidth]{functions/cylinder-1}&
+%%\includegraphics[width=\mywidth]{functions/cylinder-2}&
+%\includegraphics[width=\mywidth]{functions/cylinder-3}&
+%\includegraphics[width=\mywidth]{functions/cylinder-4}
+\\
 $y=\tan(z)$ &
 $x^2+y^2=1$
 \end{tabular}
 \end{center}
 
 \subsection{Quadric Surfaces}
-A quadric surface is a generalization of conic sections to three
+A quadric surface is a generalization of a conic section to three
 dimensions.  In general, it is the graph in 3D of any expression
 involving at most second degree terms in $x$, $y$, and/or $z$. To
 graph a quadric surface, hold one variable constant and then graph the
@@ -47,6 +75,7 @@ for $\frac{x^2}{4}+\frac{y^2}{9}-z^2 =1$ is illustrated below, as well
 as some typical quadric surfaces.  \renewcommand{\mywidth}{.9in}
 \begin{center}
 \begin{tabular}{cccc}
+
 \includegraphics[width=\mywidth]{functions/quadric-1}&
 \includegraphics[width=\mywidth]{functions/quadric-2}&
 \includegraphics[width=\mywidth]{functions/quadric-3}&
@@ -87,7 +116,7 @@ each element of the domain $D$ at most one element in the codomain
 $R$. It is customary to write {$f\colon D\to R$} when we want to
 specify the domain and codomain.  Not all elements of $R$ may be
 assigned; the set of elements in $R$ that are assigned is called the
-\emph{range} of the function.
+\emph{range} or \emph{image} of the function.
 \note{drawing of the domain, range, and codomain circles, with the function arrow going between}
 
 \begin{example}
@@ -108,7 +137,7 @@ subsets of the real numbers {$\RR$}.  A typical example is $f(x)=x^2$.
 Many ideas like derivatives, integrals, etc., from first semester
 calculus generalize to all dimensions, but some do not.
 
-\subsection{Functions of several variables:  $f\colon \RR^2\to \RR$, $f\colon \RR^3\to \RR$, $f\colon \RR^n\to \RR$} 
+\subsection{Functions of several variables: \\ $f\colon \RR^2\to \RR$, $f\colon \RR^3\to \RR$, $f\colon \RR^n\to \RR$} 
 
 With functions of this type, the output dimension is always 1, while
 the input dimension may be as large as needed. This type of function
@@ -135,10 +164,20 @@ graphs and corresponding contour plots follow.
 
 \renewcommand{\mywidth}{1.1in}
 \begin{center}
-\begin{tabular}{cccc}
-\includegraphics[width=\mywidth]{functions/functionseveral-1}&
+\begin{tabular}{ccccc}
+\tikzsetfigurename{functions-}
+\begin{tikzpicture} 
+ \begin{axis}[footnotesize, view={60}{30}, colormap/blackwhite] 
+   \addplot3[surf,domain=-3:3,y domain=-3:3] {9-x*x-y*y}; 
+ \end{axis} 
+ \end{tikzpicture}
+&
 \includegraphics[width=\mywidth]{functions/functionseveral-2}&
-\includegraphics[width=\mywidth]{functions/functionseveral-3}&
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view={60}{30}, colormap/blackwhite] 
+    \addplot3[surf,domain=-2*pi:2*pi,y domain=-2*pi:2*pi] {sin(deg(x))*cos(deg(y))}; 
+  \end{axis} 
+\end{tikzpicture}&
 \includegraphics[width=\mywidth]{functions/functionseveral-4}
 \\
 $f(x,y)=9-x^2-y^2$&
@@ -163,7 +202,7 @@ Parametric curves often represent motion in the plane.  We can write
 these functions by giving the equations for each coordinate
 separately, or we can write all of the equations as a vector, where
 each coordinate of the vector is a function of one variable.  Because
-these output of these functions is a vector, we call these functions
+the output of these functions is a vector, we call these functions
 \emph{vector-valued functions}, and often emphasize this by writing
 them with a vector symbol over the name.
 
@@ -199,24 +238,54 @@ speed is the magnitude of velocity $|\vec v|$, and acceleration is
 $\vec a(t) = \dfrac{d\vec v}{dt}$, just as was taught in first-semester
 calculus for single-variable functions.
 
+\begin{example}
+%\pgfplotsset{
+%every axis style= {view/h=-45}}
 
-\renewcommand{\mywidth}{0.9in}
-\begin{wrapfigure}[6]{r}{0pt}
-\includegraphics[width=\mywidth]{functions/spacecurve-1}
-\end{wrapfigure}
-\examplebegin
+\marginpartop{\begin{tikzpicture} 
+    \begin{axis}[footnotesize, colormap/blackwhite, view/h=-40,
+      xlabel=$x$, ylabel=$y$] 
+      % tangent line
+     \addplot3[mark=>] coordinates {(-0.0669872981077807, 1.11602540378444,
+       1.59439510239320) (-0.933012701892219, 0.616025403784439,
+       2.59439510239320)}; 
+     % acceleration vector
+     \addplot3[mark=>] coordinates {(-0.500000000000000, 0.866025403784439,
+       2.09439510239320) (0.000000000000000, 0.000000000000000,
+       2.09439510239320)};
+     \addplot3[domain=0:4*pi, samples y=0, smooth] 
+      ({cos(deg(x))}, {sin(deg(x))}, {x}); 
+   \end{axis} 
+  \end{tikzpicture}}%
+
+% sage: r(t)=(cos(t), sin(t), t)
+% sage: v=diff(r,t)(2*pi/3)
+% sage: p=r(2*pi/3)
+% sage: l=v*t+p
+% sage: l(t=-0.5).n()
+% (-0.0669872981077807, 1.11602540378444, 1.59439510239320)
+% sage: l(t=0.5)
+% (-0.250000000000000*sqrt(3) - 1/2, 1/2*sqrt(3) - 0.250000000000000, 2/3*pi + 0.500000000000000)
+% sage: l(t=-0.5).n()
+% (-0.0669872981077807, 1.11602540378444, 1.59439510239320)
+% sage: a=diff(r,t,2)
+% sage: print '%s %s'%(p.n(), (p+a(2*pi/3)).n())
+% (-0.500000000000000, 0.866025403784439, 2.09439510239320) (0.000000000000000, 0.000000000000000, 2.09439510239320)
+
+
 The space curve {$\vec r(t)=\langle\cos(t),\sin(t),t\rangle$} is a
-helix which wraps around the $z$-axis.  Its graph is shown on the
-right, where $0\leq t\leq 4\pi$, as well as the tangent line and acceleration
-vector. The velocity and acceleration at any time $t$ are $\vec v(t) =
-\langle-\sin(t),\cos(t),1\rangle$ and $\vec a(t) =
+helix which wraps around the $z$-axis.  Its graph is shown in the
+margin, where $0\leq t\leq 4\pi$, as well as the tangent line and
+acceleration vector. The velocity and acceleration at any time $t$ are
+$\vec v(t) = \langle-\sin(t),\cos(t),1\rangle$ and $\vec a(t) =
 \langle-\cos(t),-\sin(t),0\rangle$. When $t=2\pi/3$, we have $\vec
 r(2\pi/3) = \langle1/2,\sqrt{3}/2,2\pi/3\rangle$, $\vec v(2\pi/3) =
 \langle-\sqrt{3}/2,-1/2,1\rangle$, and $\vec a(2\pi/3) =
 \langle1/2,-\sqrt{3}/2,0\rangle$. An equation of the tangent line is
 $\vec l(t) = \vec v(2\pi/3)t+ \vec r(2\pi/3)=
-\langle-\sqrt{3}/2,-1/2,1\rangle t+\langle1/2,\sqrt{3}/2,2\pi/3\rangle$.
-\exampleend
+\langle-\sqrt{3}/2,-1/2,1\rangle
+t+\langle1/2,\sqrt{3}/2,2\pi/3\rangle$.
+\end{example}
 
 
 \subsection{Parametric Surfaces: {$\vec f\colon {\RR}^2\to {\RR}^3$} }
@@ -229,29 +298,68 @@ each $(x,y)$ to plot the point $(x,y,f(x,y))$. We often use $u$ and
 $v$ as variables for a parametric surface if those variables do not
 represent some other standard quantity.
 
-\renewcommand{\mywidth}{1.4in}
+{
+\tikzsetfigurename{parametricsurface-}
 \begin{center}
 \begin{tabular}{cccc}
-\includegraphics[width=\mywidth]{functions/parasurface-1}&
-\includegraphics[width=\mywidth]{functions/parasurface-2}&
-\includegraphics[width=\mywidth]{functions/parasurface-3}&
-\includegraphics[width=\mywidth]{functions/parasurface-4}
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40,colormap/blackwhite] 
+    \addplot3[surf,domain=-4:4,y domain=-4:4] 
+    (x,y,{9-x^2-y^2}); 
+  \end{axis} 
+\end{tikzpicture}&
+
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40, colormap/blackwhite, z buffer=sort] 
+    \addplot3[surf,domain=0:3,y domain=0:2*pi] 
+    ({x*cos(deg(y))},{x*sin(deg(y))}, {9-x^2}); 
+  \end{axis} 
+\end{tikzpicture}\\
+\parbox{0.5\textwidth}{\centering $\vec r(x,y) = \langle
+  x,y,9-x^2-y^2\rangle$\\$-4\leq x\leq 4$, $-4\leq y\leq 4$}
+&
+\parbox{0.5\textwidth}{\centering $\vec r(u,v)=\langle u\cos v,u\sin v
+  ,9-u^2\rangle$\\
+  $0\leq u\leq 3$, $0\leq v\leq 2\pi$\\ 
+  (cylindrical coordinates)}
+\\[12pt]
+
+
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40, colormap/blackwhite, 
+    z buffer=sort, variable=θ, variable y=φ] 
+    \addplot3[surf,domain=0:2*pi,y domain=pi/4:3*pi/4] 
+    ({3*cos(deg(θ))*sin(deg(φ))},{3*sin(deg(θ))*sin(deg(φ))},{3*cos(deg(φ))});
+ \end{axis} 
+\end{tikzpicture}&
+
+\begin{tikzpicture} 
+  \begin{axis}[footnotesize, view/h=-40, z buffer=sort, colormap/blackwhite] 
+    \addplot3[surf,domain=0:2*pi,y domain=0:pi] 
+    ({x*sin(deg(x))*cos(deg(y))},{x*cos(deg(x))*cos(deg(y))}, {x*sin(deg(y))}); 
+  \end{axis} 
+\end{tikzpicture}\\
+
+\parbox{0.5\textwidth}{\centering $\vec
+  r(\theta,\phi)=\langle3\cos\theta\sin\phi,3\sin\theta\sin\phi,3\cos\phi\rangle$\\
+  $0\leq \theta\leq 2\pi$, $\frac{\pi}{4}\leq \phi\leq \frac{3\pi}{4}$
+  \\
+  (spherical coordinates) } 
+&
+
+\parbox{0.5\textwidth}{\centering $\vec r(u,v)=\langle u\sin u \cos v
+  , u\cos u \cos v , u\sin v \rangle$\\
+ $0\leq u\leq 2 \pi$, $0\leq v\leq \pi$}
+
+
+
 \end{tabular}
 \end{center}
-The functions are, from left to right, 
-
-$\vec r(x,y) = \langle x,y,9-x^2-y^2\rangle$ for $-4\leq x\leq 4,-4\leq y\leq 4$
-
-$\vec r(u,v)=\langle u\cos v,u\sin v ,9-u^2\rangle$ for $0\leq u\leq 3,0\leq v\leq 2\pi$ (cylindrical coordinates) 
-
-$\vec r(\theta,\phi)=\langle3\cos\theta\sin\phi,3\sin\theta\sin\phi,3\cos\phi\rangle$ for $0\leq \theta\leq 2\pi,\frac{\pi}{4}\leq \phi\leq \frac{3\pi}{4}$ (spherical coordinates) 
-
-$\vec r(u,v)=\langle u\sin u \cos v , u\cos u \cos v , u\sin v \rangle$ for $0\leq u\leq 2 \pi,0\leq v\leq \pi$.
-
+}
 
 \section{Functions: $\RR^n\to \RR^n$}
 
-\subsection{Transformations (changing coordinates): {$\vec f\colon \RR^2\to \RR^2$}, {$\vec f\colon \RR^3\to \RR^3$}}
+\subsection{Transformations (changing coordinates)\\ {$\vec f\colon \RR^2\to \RR^2$}, {$\vec f\colon \RR^3\to \RR^3$}}
 
 The polar coordinate equations $x=r\cos\theta$, $y=r\sin\theta$
 require two inputs $(r,\theta)$ and give two outputs $(x,y)$.  This can
@@ -275,11 +383,11 @@ relationships.
   r^2&=x^2+y^2     
 \end{align*}
 
-\examplebegin
+\begin{example}
 The cylindrical point {$(r, \theta, z)=(3,\pi/2,4)$} in
 cylindrical coordinates is the same as the rectangular point $(x,y,z)
 = (0,3,4)$.
-\exampleend
+\end{example}
 
 \subsubsection{Spherical Coordinates}
 Spherical coordinates $(\rho,\theta,\phi)$ are defined as follows.
@@ -302,10 +410,10 @@ We can describe the spherical coordinate transformation as a
 function 
 $$T(\rho,\theta,\phi) = \langle\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi\rangle.$$ 
 
-\examplebegin 
+\begin{example} 
 The spherical point {$(\rho, \theta, \phi)=(4,\pi,\pi/4)$} is the same
 as the rectangular point $(x,y,z) = (4/\sqrt{2},0,4/\sqrt{2})$.
-\exampleend
+\end{example}
 
 There is some disagreement in different fields about the notation for
 spherical coordinates.  In some fields, $\phi$ represents the azimuth
@@ -319,16 +427,17 @@ before communicating using them.
 \subsubsection{Graphing in other coordinate systems}
 To graph an equation in a different coordinate system, simply substitute the equation into the transformation and graph the result as a parametric surface.  
 
-\examplebegin
+\begin{example}
 Suppose we have the spherical coordinate equation $\rho(\theta,\phi)=3\phi^2\cos\theta$.  Subsituting this in for $\rho$ in the transformation function gives 
 \begin{align*}
 T(\theta,\phi) &= \langle\rho(\theta,\phi)\sin\phi\cos\theta, \rho(\theta,\phi)\sin\phi\sin\theta, \rho(\theta,\phi)\cos\phi\rangle\\
 &=\langle3\phi^2\cos\theta\sin\phi\cos\theta, 3\phi^2\cos\theta\sin\phi\sin\theta, 3\phi^2\cos\theta\cos\phi\rangle\\
 \end{align*}
+\end{example}
+ 
 You can see two examples of graphing $z=9-r^2$ (cylindrical
 coordinates, where $u=r$ and $v=\theta$) and $\rho=3$ (spherical
 coordinates) in the parametric surfaces section.
-
 
 \subsection{Vector Fields: {$\vec f\colon \RR^2\to \RR^2$}, {$\vec f\colon \RR^3\to \RR^3$}}
 Another way to represent a function mapping $\RR^n\to\RR^n$ is as a
@@ -343,13 +452,15 @@ represented by drawing a bunch of vectors at different points on a
 map.  Vector fields may be one of the most useful tools we have.  You
 should practice creating vectors given a description. 
 
-\examplebegin A vector field in the plane in which the vector at any
+\begin{example} 
+A vector field in the plane in which the vector at any
 point is directed towards the origin and has magnitude equal to the
 square of the distance to the origin is
 $$\vec F(x,y) =
 (x^2+y^2)\frac{\langle-x,-y\rangle}{\sqrt{x^2+y^2}}.$$ We constructed
 the equation for the vector field by expressing the vector at the
-point $(x,y)$ as a magnitude times a unit direction vector.  \exampleend
+point $(x,y)$ as a magnitude times a unit direction vector.  
+\end{example}
 
 To graph a vector field $\vec F(x,y) = \langle M,N\rangle$ in the
 plane, at each point $(x,y)$, we draw the vector $\vec F(x,y)$ at the
@@ -369,8 +480,8 @@ r=sqrt(x^2+y^2+z^2)
 \renewcommand{\mywidth}{1.4in}
 \begin{center}
 \begin{tabular}{cccc}
-\sageplot[width=\mywidth]{plot_vector_field((-y,x), (x,-5,5),(y,-5,5),pivot='middle'),aspect_ratio=1,figsize=3} &
-\sageplot[width=\mywidth]{plot_vector_field((2*x+y,x-y), (x,-5,5),(y,-5,5),pivot='middle'),aspect_ratio=1,figsize=3} &
+\sageplot[width=\mywidth]{plot_vector_field((-y,x), (x,-5,5),(y,-5,5),pivot='middle'),aspect_ratio=1,figsize=2} &
+\sageplot[width=\mywidth]{plot_vector_field((2*x+y,x-y), (x,-5,5),(y,-5,5),pivot='middle'),aspect_ratio=1,figsize=2} &
 \sageplot[width=\mywidth][png]{plot_vector_field3d((-x/r,-y/r,-z/r), (x,-5,5),(y,-5,5),(z,-5,5),colors='black')}&
 \sageplot[width=\mywidth][png]{plot_vector_field3d((y,z,x), (x,-5,5),(y,-5,5),(z,-5,5),center_arrows=True,colors='black')}
 \\
