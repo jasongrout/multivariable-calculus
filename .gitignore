@@ -9,11 +9,19 @@
 *.nav
 *.snm
 *.tmp
+*.rel
+*.auxlock
+*.swp
 *.vrb
 *.DS_Store
 *.dvi
 *.idx
-
+figures/*.pdf
+figures/*.sage
+/*.sage
+/*.py
+/multivariable-calculus.pdf
+sage-plots-for-*
 # Ignore editor backup files
 *~
 \#*\#
