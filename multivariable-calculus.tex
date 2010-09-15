@@ -111,12 +111,10 @@
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\curl}{curl}
 \newcommand{\RR}{\ensuremath{\mathbb{R}}}
-
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: t
-%%% End: 
+% \vp is "vector prime" and corrects spacing when doing something like
+% $\vec r'$ (which has the vector and prime almost touching).
+% Instead, do something like $\vec r\vp$
+\newcommand{\vp}{\ensuremath{^{\,\prime}}}
 
 %The purpose of this code is to allow me to put lines in matrices so that I can create augmented matrices.
 \makeatletter
