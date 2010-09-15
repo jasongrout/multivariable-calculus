@@ -451,20 +451,23 @@ where $D$ is a constant.  Any equation of the form $Ax+By+Cz= D$ is an
 equation of a plane with normal vector {$\vec n =
 \langle A,B,C\rangle$}. 
 
-A normal vector for the plane which passes through the points
+\begin{example}A normal vector for the plane which passes through the points
 $P(1,0,0)$, $Q(2,0,-1)$, and $R(0,1,3)$ is found using the cross product $\vec n
 = \vec{PQ}\times \vec{PR} = \langle1,0,-1\rangle\times\langle-1,1,3\rangle =
 \langle1,-2,1\rangle$.  So an equation of the plane can be found by
 using $\vec n$ and any of the three points, which yields
 $1(x-1)-2(y-0)+1(z-0)=0$, or $x-2y+z=1$.
-As a second example, to find a normal vector for the plane containing
+\end{example}
+
+\begin{example}To find a normal vector for the plane containing
 the two intersecting lines {$\vec r_1(t) = \langle1+t,3t,2 \rangle$}
 and {$\vec r_2(t) = \langle2+2t,3,2-t \rangle$}, compute $\vec n = \vec
 v_1\times \vec v_2 = \langle1,3,0\rangle \times \langle2,0,-1\rangle=\langle-3,1,-6
 \rangle$. Since the plane contains both lines, we can use any point on
 either line as our point.  I will use {$\vec r_1(0) = \langle1,0,2
-\rangle$}, and so an equation of the line is
+\rangle$}, and so an equation of the plane is
 $-3(x-1)+1(y-0)-6(z-2)=0$.
+\end{example}
 
 Lastly, if two planes intersect, then they will intersect in a line. 
 A direction vector for that line can be found by computing the cross
@@ -473,7 +476,7 @@ then the two planes are parallel. Otherwise, you can use the dot
 product of the two normal vectors to find the angle of intersection of
 the planes.
 
-To sketch a plane, plot 3 non-collinear points. If the plane is
+To sketch a plane, plot three non-collinear points. If the plane is
 written in the form {$\displaystyle\frac xa+\frac yb+\frac zc=1$},
 then the plane passes through the coordinate axes at the points
 $(a,0,0),(0,b,0),(0,0,c)$. This is very similar to what happens with
