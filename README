@@ -1,0 +1,6 @@
+Compiling this book requires pgfplots 1.4 or greater.  This is
+included in TeXLive 2010 or can be installed separately.
+
+To compile, do:
+
+pdflatex -shell-escape multivariable-calculus.tex
