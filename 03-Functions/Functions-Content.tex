@@ -232,7 +232,7 @@ the limit $\ds\frac{d\vec r}{dt}=\lim_{h\to 0}\frac{\vec r(t+h)-\vec
   r(t)}{h}$. An equation of the tangent line to a space curve at $t=c$
 has direction vector equal to $\dfrac{d\vec r}{dt}$ (evaluated at
 $t=c$) and passes through the point $\vec r(c)$, and so has an equation of
-$\vec l(u) = \vec r^\prime(c)u+\vec r(c)$. If a space curve is used to
+$\vec l(u) = \vec r\vp(c)u+\vec r(c)$. If a space curve is used to
 describe motion, then velocity is $\vec v(t) = \dfrac{d\vec r}{dt}$,
 speed is the magnitude of velocity $|\vec v|$, and acceleration is
 $\vec a(t) = \dfrac{d\vec v}{dt}$, just as was taught in first-semester
@@ -282,21 +282,21 @@ $\vec v(t) = \langle-\sin(t),\cos(t),1\rangle$ and $\vec a(t) =
 r(2\pi/3) = \langle1/2,\sqrt{3}/2,2\pi/3\rangle$, $\vec v(2\pi/3) =
 \langle-\sqrt{3}/2,-1/2,1\rangle$, and $\vec a(2\pi/3) =
 \langle1/2,-\sqrt{3}/2,0\rangle$. An equation of the tangent line is
-$\vec l(t) = \vec v(2\pi/3)t+ \vec r(2\pi/3)=
+$\vec l(u) = \vec v(2\pi/3)u+ \vec r(2\pi/3)=
 \langle-\sqrt{3}/2,-1/2,1\rangle
-t+\langle1/2,\sqrt{3}/2,2\pi/3\rangle$.
+u+\langle1/2,\sqrt{3}/2,2\pi/3\rangle$.
 \end{example}
 
 
 \subsection{Parametric Surfaces: {$\vec f\colon {\RR}^2\to {\RR}^3$} }
+\label{sec:param-surf-vec}
 
-Just as parametric and space curves describe one-dimensional objects, we use parametric surfaces to describe two-dimensional objects in 3D.  Notice that we are mapping two dimensions into three, so think of a parametric surface as a set of instructions of how to place the 2D plane in space (where you can twist the plane and stretch it based on the set of instructions).  If you hold one variable constant, then the graph of the resulting function is a space curve. To graph a parametric surface, hold one variable constant and draw the resulting space curve.  Do this for a few values of each variable, and you will have created a net of overlapping space curves from which you can piece together the surface.  
+Just as parametric and space curves describe one-dimensional objects, we use parametric surfaces to describe two-dimensional objects in 3D.  Notice that we are mapping two dimensions into three, so think of a parametric surface as a set of instructions for how to place the 2D plane in space (where you can twist and stretch the plane).  If you hold one variable constant, then the graph of the resulting function is a space curve. To graph a parametric surface, hold one variable constant and draw the resulting space curve.  Do this for a few values of each variable, and you will have created a net of overlapping space curves from which you can piece together the surface.  
 
 Any surface of the form $z=f(x,y)$ can be made a parametric surface by
 writing $\vec r(x,y)=\langle x,y,f(x,y)\rangle$, which just says for
 each $(x,y)$ to plot the point $(x,y,f(x,y))$. We often use $u$ and
-$v$ as variables for a parametric surface if those variables do not
-represent some other standard quantity.
+$v$ as variables for a parametric surface.
 
 {
 \tikzsetfigurename{parametricsurface-}
@@ -371,7 +371,7 @@ recognize that it is really a function.
 \note{drawing showing a transformation of the $r,\theta$ plane to the $x,y$ plane}
 
 \subsubsection{Cylindrical Coordinates}
-Cylindrical coordinates is an extension of polar coordinates to three
+Cylindrical coordinates are an extension of polar coordinates to three
 dimensions.  The transformation $T(r,\theta,z) = \langle
 r\cos\theta,r\sin\theta,z\rangle$ gives us a new way of viewing points
 in 3D.  Using the triangle $x,y,r$, we can figure out the following
@@ -392,7 +392,7 @@ cylindrical coordinates is the same as the rectangular point $(x,y,z)
 \subsubsection{Spherical Coordinates}
 Spherical coordinates $(\rho,\theta,\phi)$ are defined as follows.
 The distance (\emph{radius}) from the origin to the point $(x,y,z)$ is
-called $\rho$. The angle $\theta$ (the \emph{azimuth}) is the same as
+called $\rho$\marginpar{$\rho$ is the Greek letter ``rho''}. The angle $\theta$ (the \emph{azimuth}) is the same as
 in polar or cylindrical coordinates. The angle $\phi$ (the
 \emph{inclination}) is the angle between the positive $z$-axis and a
 ray from the origin to $(x,y,z)$. Using these definitions, we obtain
@@ -437,7 +437,7 @@ T(\theta,\phi) &= \langle\rho(\theta,\phi)\sin\phi\cos\theta, \rho(\theta,\phi)\
  
 You can see two examples of graphing $z=9-r^2$ (cylindrical
 coordinates, where $u=r$ and $v=\theta$) and $\rho=3$ (spherical
-coordinates) in the parametric surfaces section.
+coordinates) at the end of Section~\ref{sec:param-surf-vec}.
 
 \subsection{Vector Fields: {$\vec f\colon \RR^2\to \RR^2$}, {$\vec f\colon \RR^3\to \RR^3$}}
 Another way to represent a function mapping $\RR^n\to\RR^n$ is as a
@@ -449,8 +449,7 @@ to model gravity, forces, velocity, wind, acceleration, electric
 fields, and many other things in nature. For example, the speed and
 direction of wind depends on location, so the velocity of wind can be
 represented by drawing a bunch of vectors at different points on a
-map.  Vector fields may be one of the most useful tools we have.  You
-should practice creating vectors given a description. 
+map.  Vector fields may be one of the most useful tools we have.
 
 \begin{example} 
 A vector field in the plane in which the vector at any
