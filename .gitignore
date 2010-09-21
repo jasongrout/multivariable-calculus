@@ -18,6 +18,7 @@
 *.idx
 figures/*.pdf
 figures/*.sage
+figures/*.dpth
 /*.sage
 /*.py
 /multivariable-calculus.pdf
