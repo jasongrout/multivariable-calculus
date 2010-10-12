@@ -50,7 +50,10 @@ limits from the left and limits from the right---those are the only
 ways $x$ can move closer to $c$.  However, if there are more input
 variables, then there are infinitely many ways to approach $\vec c$. A
 limit exists at $\vec c$ if and only if the limit exists along
-\emph{every} approach to $\vec c$.  For example, the function $f(x,y)
+\emph{every} approach to $\vec c$.  
+
+\begin{example}
+The function $f(x,y)
 = \frac{x^2-y^2}{x^2+y^2}$ has a limit at every point in the plane
 except at the origin because rational functions are continuous as long
 as the denominator is nonzero.  We write $\ds
@@ -75,6 +78,7 @@ $\ds \lim_{\text{\tiny$\begin{array}{c}
 \frac{x^2-(mx)^2}{x^2+(mx)^2}=\frac{1-m^2}{1+m^2}$, which is different
 for each $m$. We say that the function $f$ has no limit (or the limit is undefined) at the
 origin because the limit is not the same along different approaches. 
+\end{example}
 
 If a function has a limit, then the limit will be the same regardless
 of the approach. In the functions below, the first does not have a
@@ -134,9 +138,13 @@ of $f$ with respect to $x$ as $\ds f_x(x,y)=f_x = \frac{\partial f}{\partial x}=
 \lim_{h\to 0}\frac{f(x+h,y)-f(x,y)}{h}$, and the partial derivative of
 $f$ with respect to $y$ as $\ds f_y(x,y)=f_y =\frac{\partial f}{\partial y}=
 \lim_{k\to 0}\frac{f(x,y+k)-f(x,y)}{k}$. Notice that $f_x$ computes a
-limit as $y$ is held constant and we vary $x$. For
+limit as $y$ is held constant and we vary $x$. 
+\begin{example}
+For
 $f(x,y)=3x^2+4xy+\cos(xy)+y^3$, we obtain $f_x=6x+4y-y\sin(xy)+0$ and
-$f_y=0+4x-x\sin(xy)+3y^2$. Partial derivatives are found by holding
+$f_y=0+4x-x\sin(xy)+3y^2$.
+\end{example}
+ Partial derivatives are found by holding
 all other variables constant, and then differentiating with respect to
 the variable in question. Practice computing partial derivatives with
 lots of functions. The homework should go very quickly, but this skill
@@ -154,7 +162,10 @@ Similarly $\langle0,1,f_y\rangle$ is a direction vector of a line
 tangent to the surface, where the line is parallel to the $yz$-plane.
 The cross product of these two vectors is $\vec n =
 \langle-f_x,-f_y,1\rangle$, which is a normal vector for the tangent
-plane to the surface. For the function $f(x,y)=9+x-y^2$ at
+plane to the surface. 
+
+\begin{example}
+For the function $f(x,y)=9+x-y^2$ at
 $(x,y)=(1,2)$, we have $f(x,y)=6$, $f_x(x,y) =1$, $f_y(x,y)=-2y$,
 $f_x(1,2)=1$, and $f_y(1,2)=-4$. So a tangent line to the surface at
 $(1,2,6)$ in the $x$ direction is $\vec r(t) = \langle1,0,1\rangle t+ 
@@ -162,6 +173,7 @@ $(1,2,6)$ in the $x$ direction is $\vec r(t) = \langle1,0,1\rangle t+
 \langle0,1,-4\rangle t+  \langle1,2,6\rangle$, and an equation of the
 tangent plane is $-1(x-1)+4(y-2)+1(z-6)=0$. The pictures below
 illustrate these lines and planes 
+\end{example}
 
 \renewcommand{\mywidth}{1.3in}
 \begin{center}
@@ -188,7 +200,10 @@ $z=f(x,y)=9+x-y^2$.
 
 Since a partial derivative is a function itself, you can take
 derivatives of a partial derivative as well, giving what is called
-higher order partials.  For the function $f(x,y,z)=x^2+4xy^2-yz^3$, we
+higher order partials.  
+
+\begin{example}
+For the function $f(x,y,z)=x^2+4xy^2-yz^3$, we
 have $f_x=2x+4y^2, f_y=8xy-z^3, f_z=-3yz^2$, and so we obtain the
 following second order partial derivatives $
 \frac{\partial}{\partial x}f_x = f_{xx} = 2,
@@ -200,7 +215,8 @@ following second order partial derivatives $
 \frac{\partial}{\partial x}f_z = f_{zx} = 0, 
 \frac{\partial}{\partial y}f_z = f_{zy} = -3z^2, 
 \frac{\partial}{\partial z}f_z = f_{zz} = -6z.$
-Notice that $f_{xy}=f_{yx}, f_{xz}=f_{zx}$, and $f_{zy}=f_{yz}$. As
+\end{example}
+Notice that in the example, $f_{xy}=f_{yx}, f_{xz}=f_{zx}$, and $f_{zy}=f_{yz}$. As
 long as a function is two times continuously differentiable, then
 second order partial derivatives using the same variables but in a
 different order will always be the same. This fact will get used
@@ -271,10 +287,15 @@ dx=x-a,dy=y-b$, and then obtain $z-f(a,b) =
 (x-a)+f_y(a,b)(y-b)$. This is equivalent to  $-f_x(a,b)
 (x-a)-f_y(a,b)(y-b)+z-f(a,b)=0$, which is the equation of a plane with
 normal vector $\vec n=\langle-f_x,-f_y,1\rangle$, which we already
-obtained in the partial derivatives section. For the function
+obtained in the partial derivatives section. 
+
+\begin{example}
+For the function
 $f(x,y)=9+x-y^2$ at $(x,y)=(1,2)$, an equation of the tangent plane is
 simply  $z-6 =
 \begin{bmatrix}1&-4\end{bmatrix}\begin{bmatrix}x-1\\y-2\end{bmatrix}$. 
+\end{example}
+
 This version of finding tangent planes generalizes to all dimensions
 and gives the ``tangent space.''
 
@@ -324,7 +345,8 @@ for remembering the multiplications involved in the chain rule, but
 these are just ways of organizing matrix multiplication without
 referring to a matrix.
 
-We now look at a few examples. Suppose the temperature at each point
+\begin{example}
+Suppose the temperature at each point
 in the plane is given by {$f(x,y) = 9-x^2-y^2$}.  A particle moving
 through the plane along the curve $x=t+1, y=t^2$ will have a
 temperature given by $f(r(t)) = f(t+1,t^2) = 9-(t+1)^2-(t^2)^2$.  We
@@ -350,11 +372,14 @@ $$D(f\circ \vec r)(t) = Df(\vec r(t))D\vec r(t)=\begin{bmatrix}-2(t+1) &
 differentiating $f(r(t)) = 9-(t+1)^2-(t^2)^2$.  This second approach
 may at first seem easier, but the first approach becomes essential
 when you want to do implicit differentiation and high-dimensional
-calculus.  To summarize the two-variable case, we just developed the
+calculus.
+\end{example}
+  To summarize the two-variable case, we just developed the
 formula $\ds \frac{df}{dt}=\begin{bmatrix}f_x &
   f_y\end{bmatrix} \begin{bmatrix}x_t\\ y_t\end{bmatrix}=f_xx_t+f_yy_t
 = \frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}$.
 
+\begin{example}
 For $f(x,y,z) = 3xy+z^2$ and $x=2u+v,y=u-v,z=uv$, we can compute both
 $\frac{\partial f}{\partial u}$ and $\frac{\partial f}{\partial v}$ using the chain rule.  Again,
 let's name the function $x=2u+v,y=u-v,z=uv$, using something like $\vec
@@ -379,7 +404,9 @@ We just developed the general formula
 $$D(f\circ \vec r)(u,v)=\begin{bmatrix}f_u & f_v 
 \end{bmatrix}=\begin{bmatrix}f_xx_u + f_yy_u+f_zz_u & f_xx_v +
 f_yy_v+f_zz_v  \end{bmatrix}.$$
+\end{example}
 
+\begin{example}
 For an equation of the form $y^2x+x-xy=1$, we learned how to calculate
 $\frac{dy}{dx}$ implicitly in first-semester calculus.  We now learn a
 quick method using high-dimensional calculus. Let $f(x,y) = y^2x+x-xy$
@@ -390,13 +417,15 @@ r(x))D\vec
 r(x)=\begin{bmatrix}f_x& f_y\end{bmatrix}\begin{bmatrix}1 \\
   \frac{dy}{dx}\end{bmatrix}$.  Matrix multiplication gives $f_x+f_y
 \frac{dy}{dx}=0$ so $\frac{dy}{dx} = -\frac{f_x}{f_y} =
--\frac{y^2+1-y}{2xy-x}$.  This idea can be generalized to do implicit
+-\frac{y^2+1-y}{2xy-x}$.
+\end{example}
+
+The ideas in the previous example can be generalized to do implicit
 differentiation in any setting. This illustrates an important
 idea. Some problems become easier to solve in higher dimensions.
 Sometimes the only solution to a problem is found by looking at the
 problem in a higher dimensional space where there are more tools
 available.
-
 
 
 \section{Partial Derivatives with constrained variables}

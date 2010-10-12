@@ -1,0 +1,352 @@
+
+\chapter{Motion}
+
+This chapter covers the following ideas. 
+
+\input{05-Motion/Motion-Objectives}%$
+
+\section{Projectile Motion}
+
+The main point of this section is not for you to memorize the formulas
+and put numbers in them, but rather that you can actually derive these
+formulas.  The homework in the textbook provides you with a bunch of
+problems where you are just putting in numbers and solving. I suggest
+that you start each problem from scratch and derive the formulas (as
+this is what I will test you on).
+
+\note{make picture and table of the quantities}
+
+If an object has initial velocity {$ \vec v_0 $}, initial position {$
+  \vec r_0 $}, and acceleration {$ \vec a(t) $}, then you can find the
+position at any given time by integrating, since $\vec v(t)=\int \vec
+a(t) dt$, and $\vec r(t)=\int \vec v(t)dt$.  Projectile motion describes
+the ideal path of motion of an object which is fired into the air at a
+given angle, $\alpha$, and a given speed, $v_0$, assuming that gravity
+$\vec a(t) =\langle0,-g\rangle$ is the only force which acts on the
+projectile. Note that our coordinate system has the gravity vector
+pointing downwards. Notationally, we let $x(t)$ represent the horizontal position at time $t$, $y(t)$ represent the vertical position at time $t$, $\vec r(0)=\vec r_0 = \langle
+x_0,y_0\rangle$, $v_{x_0} = v_0\cos \alpha$, $v_{y_0}=v_0\sin \alpha$, and
+$\vec{v_0}=\langle v_{x_0},v_{y_0}\rangle$. Integration gives $\vec v(t)=\vec a
+t+\vec v_0$, and $\vec r(t) =\frac{1}{2}\vec a t^2 +\vec v_0 t +\vec
+r_0$. Therefore, we have $x(t) = v_{x_0}t +x_0= v_0\cos\alpha+x_0$ and
+$y(t) = -\frac{1}{2}gt^2+v_{y_0}t+y_0=-\frac{1}{2}gt^2+v_0\sin\alpha
+t+y_0$. To simplify the calculations, most of the time the coordinate
+axis is placed with the origin at $(x_0,y_0)$, which simplifies the
+formulas to be $x(t) = v_{x_0}t$ and $y(t) =
+-\frac{1}{2}gt^2+v_{y_0}t$.
+
+Using this formula, we can compute the height, flight time, and range
+by using tools from first-semester calculus. The maximum height is
+achieved when the velocity is $0$ in the $y$ direction.  Hence we want
+to solve $0=-gt+v_{y_0}$ or $t=v_{y_0}/g = v_0\sin\alpha/g$.  The max
+height is the $y$ value at this value of $t$, so the max height is
+$y_{\text{max}} = -\frac{1}{2}g(v_{y_0}/g)^2+v_{y_0}v_{y_0}/g =
+\frac{1}{2}v_{y_0}^2/g$.  Since the motion follows a parabola, the
+range is found by calculating the $x$ value at twice this time, or $R
+= v_{x_0}(2v_{y_0}/g) = 2v_0^2\sin\alpha\cos\alpha/g=\sin(2\alpha)/g$.  We could also
+find the range by solving $y(t)=y_0$ and plugging the corresponding
+$t$ value into $x(t)$.
+
+
+Here is an example.  An archer stands 6ft above ground level and
+shoots an arrow at an object which is 90 feet away in the horizontal
+direction and 74 ft above ground. The archer needs the arrow to hit
+the target at the peak of its parabolic path. For the purposes of this
+example, let $g = 32 \text{ft}/\text{s}^2$. (see the textbook, page
+908) What initial velocity and firing angle are needed to achieve this
+result? To answer this, we first decide where to place the origin.  We
+will place the origin at 6ft above ground, so that the max height is
+68 ft and it is achieved 90 ft away horizontally.  We need to solve
+$\vec r(t_m)=\langle90,68\rangle = \langle v_{x_0}t_m, -\frac{1}{2}gt_m^2+v_{y_0}t\rangle$,
+and $\vec v(t_m)= \langle v_{x_0},0 \rangle=\langle v_{x_0},-gt_m+v_{y_0}\rangle $ for $t_m,
+v_{x_0}, v_{y_0}$, as then $v_0=\sqrt{ v_{x_0}^2+ v_{x_0}^2}$ and $\alpha =
+\arctan( v_{y_0}/ v_{x_0})$.  We have $ 0 = -gt_m+v_{y_0}$ or $t_m =
+v_{y_0}/g$.  The $y$ coordinate of the position gives
+$68=-\frac{1}{2}g(v_{y_0}/g)^2+v_{y_0}v_{y_0}/g =
+\frac{1}{2}v_{y_0}^2/g$. Hence $v_{y_0} = \sqrt{2\cdot 68\cdot g}$. The $x$
+coordinate of the position gives $90 = v_{x_0}v_{y_0}/g$, or $v_{x_0}
+= 90g/v_{y_0}=90g/\sqrt{2\cdot 68\cdot g}$. The rest of the variables can now
+be solved for to find the initial firing angle.
+
+
+
+
+\section{Arc Length}
+
+Recall the formulas for arc length are, depending on how the function
+is defined, $ s=\int_a^b \sqrt{[\frac{dy}{dx}]^2+1}\;dx$, $s=\int_c^d
+\sqrt{1+[\frac{dx}{dy}]^2}\;dy$, or $s=\int_a^b
+\sqrt{[\frac{dx}{dt}]^2+[\frac{dy}{dt}]^2}\;dt $.  Using differential
+notation {$ ds=\sqrt{dx^2+dy^2} $}, these formulas can all be
+summarized by the formula $ s=\int_C ds $, where $C$ represents the curve
+over which we are integrating. This notation introduces the notation
+for line integrals. By parametrizing the curve $C$ as {$ r(t)=\langle
+  x(t),y(t)\rangle $}, we see $ s=\int_C ds = \int_a^b |r^\prime(t)| dt $.  In other
+words, a little change of arc length {$ ds $} is equal to the product
+of speed $|\vec r^\prime(t)|$ and a little change in time $dt$.  This is
+the same formula learned in grade school: distance = rate $\times$ time,
+where now we are just adding up a bunch of distances using definite
+integrals.
+
+\subsection{Reparametrizing by arc length}
+From now on we will assume that curves are smooth, which means that
+the curve is differentiable and $\vec r^\prime(t)\neq \vec 0$ (the velocity is
+never zero).  When we follow a space curve $\vec r(t)$, the speed
+$|\vec r^\prime(t)|$ traveled depends on the parameter {$t$}. At some
+points along the curve the speed could be larger than at others.  We
+can introduce a new parametrization by speeding up if the the speed is
+less than one and slowing down if the speed is greater than one. This
+new parametrization will move at constant speed 1, so that every one
+unit increase in time results in a one unit increase in length. For a
+curve $\vec r(t)$, $a\leq t\leq b$, let $s(t)=\int_a^t|\vec r^\prime(\tau)|\;d\tau$ (note
+that we use {$ \tau $} as a dummy variable since $t$ is already used in
+the bounds of the integral). We see that $s(t)$ calculates the length
+traveled by the curve between $a$ and $t$.  The fundamental theorem of
+calculus shows that $\frac{ds}{dt} = |\vec r^\prime(t)|$. Since the speed
+is never zero, we can find an inverse function $t(s)$, which, given an
+arclength $s$, tells us the amount of time needed to travel the
+distance $s$. The inverse function theorem states that $\frac{dt}{ds}
+= \frac{1}{ds/dt} = \frac{1}{| \vec r^\prime(t)|}$. The chain rule then
+gives the derivative of $\vec r(t(s))$ with respect to the arc length
+parameter $s$ as $\frac{dr}{ds} = \frac{d\vec r}{dt}\frac{dt}{ds} =
+\frac{\vec r^\prime}{|\vec r^\prime(t)|}$, which is a unit vector. Hence if we
+use $s$ as the parameter, we traverse the curve at constant speed $1$.
+Theoretically it is possible to always reparametrize any smooth curve.
+However, in practice it may not always be easy to actually find the
+parametrization.
+
+For the helix $ \vec r(t)=\langle\cos(t),\sin(t),t\rangle $, we can compute the
+following: $r^\prime(t) =\langle-\sin(t),\cos(t),1\rangle$, $|r^\prime(t)| = \sqrt{(-\sin
+t)^2+(\cos t)^2+1^2}=\sqrt{2}$. The length of one coil is $s =
+\int_0^{2\pi}\sqrt{2}dt = 2\pi\sqrt 2$. The arc length parameter is $s(t) =
+\int_0^{t}\sqrt{2}dt = t\sqrt{2}$.  Hence $t=s/\sqrt{2}$.  So if we
+reparametrize the curve using the composite $\vec r(t(s)) = 
+\langle\cos(\frac{s}{\sqrt 2}),\sin(\frac{s}{\sqrt 2}),\frac{s}{\sqrt 2}\rangle $,
+we find $\frac{d\vec r}{ds} = \langle-\frac{1}{\sqrt{2}}\sin(\frac{s}{\sqrt
+2}),\frac{1}{\sqrt{2}}\cos(\frac{s}{\sqrt 2}),\frac{1}{\sqrt 2}\rangle $ and
+$\left|\frac{d\vec r}{ds}\right|=1$. 
+
+
+
+\section{The $TNB$ frame}
+
+For a space curve $\vec r(t) = \langle x(t),y(t),z(t)\rangle$, the $TNB$ frame is
+an orthogonal collection of unit vectors which describe the
+tangential, normal, and binormal (tangential cross normal) directions
+of motion. Such a frame is necessary for a stationary observer to
+understand how the world looks to a moving object.  The $TNB$ frame
+gives an observer a way to place points in an $xyz$ coordinate frame.
+Imagine two friends, one on the ground and another on a spacecraft
+which moves in the tangential direction ({$ \vec T $}) with the left
+wing always pointing in the direction $\vec N$ of acceleration which
+is orthogonal to the tangential direction of motion. Then the binormal
+direction ({$ \vec B $}) is the direction the head of the person on a
+spacecraft would point. The $TNB$ frames gives a way of allowing the
+observer on the ground to give directions to the person in the
+spacecraft. The following table summarizes the discussion which
+follows.
+
+ 
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Unit Tangent Vector & $\vec T$ & $\frac{d\vec r}{ds} = \frac{d\vec
+r/dt}{ds/dt} = \frac{\vec r^\prime(t)}{|\vec r^\prime(t)|}$\\\hline
+Curvature Vector & $\vec \kappa $& $\frac{d\vec T}{ds} =\frac{d\vec
+T/dt}{ds/dt} = \frac{d\vec T/dt}{|\vec v|} = \frac{\vec T^\prime(t)}{|\vec
+r^\prime(t)|} $\\\hline
+Curvature (not a vector, but a scalar)& $ \kappa $&$= \left|\frac{d\vec
+T}{ds}\right| =\left|\frac{d\vec T/dt}{ds/dt}\right| =
+\frac{\left|d\vec T/dt\right|}{|\vec v|}= \frac{|\vec T^\prime(t)|}{|\vec
+r^\prime(t)|}  $ \\\hline
+Principal unit normal vector & $ \vec N$& $ \frac{1}{\kappa}\frac{d\vec
+T}{ds} = \frac{\vec \kappa }{|\vec \kappa |} = \frac{d\vec T/dt}{|d\vec T/dt|} = \frac{\vec T^\prime(t)}{|\vec
+T^\prime(t)|}$\\\hline
+Radius of curvature & $ \rho$ & $1/\kappa$\\\hline
+Center of curvature &  & $\vec r(P)+\rho(P)\vec N(P)$ \\\hline
+Binormal vector & $ \vec B$& $ \vec T\times\vec N$\\\hline
+Torsion & $ \vec \tau $ & $ -\frac{d\vec B}{ds}\cdot \vec N = -\frac{d\vec
+B/dt}{ds/dt}\cdot \vec N = -\frac{\vec B^\prime(t)}{|\vec r^\prime(t)|}\cdot \vec N
+$\\\hline
+Tangential Component of acceleration & $ a_T$ & $ \vec a \cdot \vec T =
+\frac{d}{dt}|\vec v|$\\\hline
+Normal Component of acceleration & $ a_N$ & $ \vec a \cdot \vec N = \kappa
+\left(\frac{ds}{dt}\right)^2 = \kappa |\vec v|^2$\\\hline
+\end{tabular}
+\end{center}
+ 
+ 
+
+\subsection{The unit tangent vector $\vec T$}
+The velocity {$\vec r^\prime(t) = \vec v(t)$} gives us the tangential
+direction of motion. Division by the magnitude gives the unit vector
+(called the unit tangent vector) {$ \vec T  = \frac{\vec r^\prime(t)}{|\vec
+r^\prime(t)|} = \frac{\vec v}{|\vec v|}$}
+Alternatively, if the curve is parametrized by arc length, then the
+speed is already 1, so the unit tangent vector is also $ \vec T  =
+\frac{d\vec r}{ds}  =  \frac{d\vec r}{dt} \frac{dt}{ds} = \vec r^\prime(t)
+\frac{1}{ds/dt}  = \vec r^\prime(t) \frac{1}{|\vec r^\prime(t)|}= \frac{\vec
+v}{|\vec v|}$.
+
+\subsection{If a vector valued function has constant length, then its
+derivative is orthogonal to the function.}
+First note that the product rule works for vector valued functions
+when considering the dot or cross product of two space curves (in
+general mathematicians define operations as products if those
+operations obey the product rule for derivatives). If the length of a
+vector is always constant, i.e. {$ |\vec r(t)|=c $}, then we have {$
+  |r(t)|^2 = \vec r(t)\cdot \vec r(t) = c^2 $}.  Taking derivatives of
+both sides (and using the product rule) gives {$ \vec r(t)\cdot \vec
+  r^\prime(t)+\vec r^\prime(t)\cdot \vec r(t)=0 $}, or {$2\vec r(t)\cdot \vec r^\prime(t)=0
+  $}.  This means that {$ \vec r(t)\cdot \vec r^\prime(t)=0 $}, or that {$ \vec
+  r(t) $} and {$ \vec r^\prime(t) $} are orthogonal. So if a vector valued
+function has constant length, then its derivative is orthogonal to the
+curve itself.
+
+\subsection{Curvature $\kappa$ and Principal Unit Normal Vector $\vec
+N$}
+The unit tangent vector {$ \vec T $} gives us the tangential direction
+of motion. The derivative of the unit tangential vector tells us how
+the direction of motion is changing. Since the unit tangent vector
+always has length one, its derivative is perpendicular to the tangential
+direction.  Curvature is a measure of the rate of change of the unit
+tangent vector per unit length. The curvature vector {$ \vec \kappa =
+  \frac{d\vec T}{ds} $} points in a direction normal to {$ \vec T $}.
+The magnitude of the curvature vector is called the curvature, and
+written {$ \kappa = |\frac{d\vec T}{ds}| $}. The unit vector in the
+direction of the curvature vector is called the principal unit normal
+vector, and written {$ \vec N $}. As reparametrizing by arc length can
+be difficult, it is convenient to give formulas for curvature that can
+be computed from a given parametrization. To do this, we apply the
+inverse function theorem again to see that $dt/ds = 1/(ds/dt)=1/|\vec
+r'(t)|$, so $\kappa=|\frac {d\vec T}{ds}| = |\frac {d\vec T}{dt} \frac
+{dt}{ds}|$, which then becomes $\kappa=|\vec T'(t)|/|\vec r'(t)|$.  These
+formulas are also listed at the beginning of this section.  
+
+For example, a circle of radius $\alpha$ has $\vec r(t)=\langle\alpha\cos t, \alpha \sin
+t\rangle$, so $\vec T(t)=\vec r'(t)/|\vec r'(t)| = \langle-\alpha \sin t, \alpha \cos
+t\rangle/\alpha=\langle-\sin t, \cos t\rangle$, so $\kappa=|\vec T'(t)|/|\vec r'(t)|=1/\alpha$.
+Therefore, the curvature of a circle of radius $\alpha$ is {$\kappa= 1/\alpha $}.
+
+\subsection{Circle of curvature (osculating circle)}
+The circle of curvature at a point $P$ on a curve where the curvature
+is nonzero is a circle in the plane containing the unit tangent and
+principle unit normal vectors which is tangent to the curve at $P$,
+has the same curvature as the curve at $P$, and whose center lies in
+the direction of the principal unit normal (i.e. the center is $\vec r
++\rho \vec N$). This circle is the best approximating circle to the curve
+at $P$. The radius of the circle is {$ \rho=\frac{1}{\kappa} $}.  The center
+of the circle of curvature is called the center of curvature.
+
+
+\subsection{The Binormal vector $\vec B$ and Torsion $\tau$}
+The binormal vector is {$ \vec B=\vec T \times \vec N $}. Notice that $\vec
+B$ is already a unit vector. The binormal vector provides the {$z$}
+axis for describing the world from the viewpoint of an object in
+motion where the {$ x $} and {$ y $} axes are given by the {$ \vec T
+$} and {$ \vec N $} directions, respectively. 
+
+The derivative $ \frac{d\vec B}{ds}  = \frac{d\vec B /dt}{ds/dt}$
+measures how quickly the binormal vector changes as you move along a
+curve (or how quickly the object is twisting).  Since {$ \vec B $} is
+constant length, the derivative {$ \frac{d\vec B}{ds} $} is orthogonal
+to {$ \vec B $}.  The following computations show that {$ \frac{d\vec
+B}{ds} $} is also orthogonal to $\vec T$, which means that {$
+\frac{d\vec B}{ds} $} must be parallel to $\vec N$. We compute (using
+the product rule) {$ \frac{d\vec B}{ds} = \frac{d(\vec T\times \vec N)}{ds}
+= \vec T\times \frac{d\vec N}{ds}+ \frac{d\vec T}{ds}\times \vec N = \vec T\times
+\frac{d\vec N}{ds}+\vec 0 $}. The last $\vec 0$ comes because {$
+\frac{d\vec T}{ds} $} is parallel to {$ \vec N $}, and the cross
+product of parallel vectors is the zero vector. We see from this
+computation that {$ \frac{d\vec B}{ds} = \vec T\times \frac{d\vec N}{ds}
+$}, which means that {$ \frac{d\vec B}{ds} $} is orthogonal to {$ \vec
+T $}.  Since {$ \frac{d\vec B}{ds} $} is orthogonal to both {$ \vec B
+$} and {$ \vec T $}, it must be a scalar multiple of {$ \vec N $}. 
+Torsion {$ \tau $} is the opposite of the scalar component of {$
+\frac{d\vec B}{ds} $} in the direction of {$ \vec N $}, i.e. {$
+\tau=-\frac{d\vec B}{ds}\cdot \vec N $}. Torsion is a measure of the rate at
+which acceleration is causing an object to rotate out of the plane
+containing {$ \vec T $} and {$ \vec N $}. Objects which are spiraling
+clockwise (as seen from behind the object) around some axis have
+positive torsion. Spiraling counterclockwise results in negative
+torsion. If you wrap your hand around the $\vec T$ vector in the
+direction of {$ \frac{d\vec B}{ds} $}, then a clockwise rotation has
+your thumb point in the $\vec T$ direction.  This is the reason for
+the choice of sign.
+
+\subsection{Tangential and Normal Components of acceleration}
+We now decompose the acceleration into tangential and normal
+components. The scalar component of acceleration in the tangential
+direction is called the Tangential Component of Acceleration $a_T$,
+and the scalar component of acceleration in the normal direction is
+called the Normal Component of Acceleration $a_T$. These can be
+computed using projections, namely {$ a_T=\text{comp}_{\vec T}\vec a 
+= \frac{\vec a \cdot \vec T}{|\vec T|} = \vec a \cdot \vec T $}, and {$
+a_N=\text{comp}_{\vec N}\vec a  = \frac{\vec a \cdot \vec N}{|\vec N|} =
+\vec a \cdot \vec N $}.
+Alternatively, we can write {$ \vec v = \frac{d\vec r}{dt} =
+\frac{d\vec r}{ds}\frac{ds}{dt} = \vec T \frac{ds}{dt} $}, and then
+compute (using the product rule)
+$$ \vec a = \frac{d\vec v}{dt} = \frac{d}{dt}\left( \vec T
+\frac{ds}{dt} \right) = \vec T  \frac{d}{dt}\frac{ds}{dt} +
+\frac{d}{dt}\vec T  \frac{ds}{dt} = \vec T  \frac{d^2 s}{dt^2} +
+\frac{\frac{d}{dt}\vec T}{\frac{ds}{dt}}  \left(\frac{ds}{dt}\right)^2
+= \vec T  \frac{d}{dt}|\vec v| + \vec \kappa  \left(\frac{ds}{dt}\right)^2
+=   \frac{d}{dt}|\vec v| \vec T + \kappa   \left(\frac{ds}{dt}\right)^2
+\vec N.$$
+This shows that the acceleration is in the plane formed by the
+tangential and principal unit normal vectors. 
+
+There are many other formulas for computing $a_T$ and $a_N$. You don't
+need to memorize them, rather you should be able to derive them.
+Following are useful formulas for doing basic computations.  Modern
+technology makes doing the computations in all cases simple,
+regardless of the formula.  You should know how to derive these
+formulas given the hints I provide: {$ a_N =\sqrt{ |\vec a|^2-a_T^2} 
+$} (this is very useful for computing {$ a_N $}, just draw the vectors
+and use the Pythagorean theorem), {$ a_N = \vec a \cdot \vec N $} (the
+hard part here is computing {$ \vec N $} ), {$ \kappa = \frac{\vec v \times \vec
+a}{|\vec v|^3} $} (write {$ \vec v $} and {$ \vec a $} in terms of {$
+\vec T $} and {$ \vec N $}, and then compute the magnitude
+symbolically, and solve for {$ \kappa $}).
+
+\subsection{An Example}
+We will compute the quantities above for the helix $\vec r(t) = \langle\cos
+t,\sin t, t\rangle$.
+$\vec v(t) = \vec r^\prime(t) = \langle-\sin t,\cos t, 1\rangle$, and speed $= |\vec
+r^\prime(t)| = \sqrt{2}$,
+$\vec T(t) = \vec r^\prime(t)/|\vec r^\prime(t)| = \frac{1}{\sqrt{2}}\langle-\sin
+t,\cos t, 1\rangle$,
+$d\vec T/dt = \frac{1}{\sqrt{2}}\langle-\cos t, -\sin t, 0\rangle$,
+$\vec \kappa = d\vec T/ds = \frac{1}{2}\langle-\cos t, -\sin t, 0\rangle$,
+$\kappa = |\vec \kappa|= \frac{1}{2}$, so $\rho = 2$,
+$\vec N = \vec \kappa /\kappa = \langle-\cos t, -\sin t, 0\rangle$,
+the center of curvature is at $\vec r+\rho\vec N = \langle\cos t,\sin t,
+t\rangle+2\langle-\cos t, -\sin t, 0\rangle = \langle-\cos t,-\sin t, t\rangle$,
+$\vec B = \frac{1}{\sqrt{2}}\langle\sin t,-\cos t, 1\rangle$,
+$d\vec B/dt = \frac{1}{\sqrt{2}}\langle\cos t,\sin t, 0\rangle$,
+$d\vec B/ds = \frac{1}{2}\langle\cos t,\sin t, 0\rangle$,
+$\tau = - \frac{1}{2}\langle\cos t,\sin t, 0\rangle\cdot \langle-\cos t, -\sin t, 0\rangle =
+\frac{1}{2}$,
+$a_T=0$, $a_N=1$. In general you should not expect to find that $\kappa, \rho,
+\tau,a_T, a_N$ are integers, but rather some complex function of $t$. 
+Even for parabolas, these formulas get messy really soon.  Do a few
+problems from the text to make sure you understand how the
+computations proceed, but spend a majority of your time making sure
+you can prove the relationships found between the vectors.
+
+
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../multivariable-calculus"
+%%% End: 
+
+
+
+
+
