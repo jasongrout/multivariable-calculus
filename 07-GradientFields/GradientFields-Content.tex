@@ -547,16 +547,17 @@ statement being true implies that the second statement is true).  A
 label on the arrow means that the condition has to be satisfied for
 the implication to be hold.  The definitions of the terms are in the
 book (or you can ask me). 
-
 \begin{figure}[h]
   \centering
  \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
     \matrix (m) [matrix of math nodes, row sep=8em,
-    column sep=16em, text height=1.5ex, text depth=0.25ex]
-    { F=\nabla f & \displaystyle\int_C\vec F\cdot d\vec r \text{ is independent of path} \\
-     M_y=N_x, M_z=P_x, N_z=P_y  & \displaystyle\oint_C \vec F\cdot d\vec r=0 \text{ (closed path $C$)}\\ };
+    column sep=16em, text centered]
+    { F=\nabla f & \node{\parbox{2.5cm}{\centering $\displaystyle\int_C\vec F\cdot
+          d\vec r$ is \\ independent of path $C$}}; \\
+     \parbox{1.5cm}{\centering $M_y=N_x$\\ $M_z=P_x$\\ $N_z=P_y$}  &
+     \node{\parbox{2.5cm}{\centering $\displaystyle\oint_C \vec F\cdot d\vec r=0$ \\(closed path $C$)}};\\ };
     \path[>=latex,->,line width=1pt]
-    (m-1-1.north east) edge [bend left=5] (m-1-2.north west)
+    (m-1-1) edge [bend left=5] (m-1-2)
     (m-1-1) edge  node[auto] {$\vec F$ has continous partials} (m-2-1)
     (m-1-2) edge [bend left=5] node[auto] {$D$ connected} (m-1-1)
     (m-1-2) edge [bend left=10] (m-2-2)
