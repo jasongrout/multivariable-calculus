@@ -22,11 +22,11 @@ approximate total work {$ W \approx \sum \vec F \cdot \vec T \Delta s $}.  Takin
 gives 
 $$%\displaystyle
 W = \int_C \vec F\cdot \vec T \,ds 
-= \int_a^b\vec F\cdot \frac{\vec r'}{|\vec r'|}|\vec r'| dt 
-= \int_a^b\vec F\cdot \vec r' dt 
+= \int_a^b\vec F\cdot \frac{\vec r\vp}{|\vec r\vp|}|\vec r\vp| dt 
+= \int_a^b\vec F\cdot \vec r\vp dt 
 = \int_C \vec F\cdot d\vec r.$$
-(We use the differential notation {$ d\vec r= \vec r' dt $}, which
-comes from the equation {$ \frac{d\vec r}{dt} = \vec r' $}.)
+(We use the differential notation {$ d\vec r= \vec r\vp dt $}, which
+comes from the equation {$ \frac{d\vec r}{dt} = \vec r\vp $}.)
 If {$ \vec F = \langle M,N,P\rangle $} for some functions $M,N$, and
 $P$, then the work can be written 
 $$W = \int_C \langle M,N,P\rangle\cdot\langle dx,dy,dz\rangle 
@@ -67,7 +67,7 @@ Consider the vector field {$\vec F(x,y)=\langle-y,x\rangle$}.
 The circulation of {$\vec F$} along a circle of radius $a$ that is
 traversed counter-clockwise is found by first parametrizing the circle
 $C\colon r(t) = \langle a\cos t,a\sin t\rangle$, $0\leq t\leq2\pi$ (so that we traverse it
-counter-clockwise). Hence $\vec r'(t) = \langle-a\sin t,a\cos t\rangle$ and
+counter-clockwise). Hence $\vec r\vp(t) = \langle-a\sin t,a\cos t\rangle$ and
 $\int_C\vec F\cdot d\vec r = \int_0^{2\pi} \langle-y,x\rangle\cdot \langle-a\sin t,a\cos t\rangle dt =
 \int_0^{2\pi} \langle-a\sin t,a\cos t\rangle\cdot \langle-a\sin t,a\cos t\rangle dt = \int_0^{2\pi}
 a^2\sin^2 t+a^2\cos^2 t dt = \int_0^{2\pi} a^2 dt = 2\pi a^2$.  Notice that
@@ -105,20 +105,20 @@ $C_1\colon\vec r_1(t) = \langle1,0\rangle t+\langle0,0\rangle$ for $0\leq t \leq
 to (0,1), we write $C_2\colon\vec r_2(t) = \langle-1,1\rangle t+\langle1,0\rangle$ for $0\leq t \leq
 1$. For the segment from (0,1) to (0,0), we write $C_3\colon\vec r_3(t) =
 \langle0,-1\rangle t+\langle0,1\rangle$ for $0\leq t \leq 1$. We then compute
-$$\begin{array}{rlll}
-  \oint_C \vec F\cdot d\vec r 
-  &= \int_{C_1} \vec F\cdot d\vec r_1 &+ \int_{C_2} \vec F\cdot d\vec r_2 &+ \int_{C_3}
+\begin{alignat*}{3}
+  &\oint_C \vec F\cdot d\vec r \\
+  &= \int_{C_1} \vec F\cdot d\vec r_1 &&+ \int_{C_2} \vec F\cdot d\vec r_2 &&+ \int_{C_3}
   \vec F\cdot d\vec r_3\\
-  &= \int_0^1 \langle-y,x\rangle\cdot \langle1,0\rangle dt &+ \int_0^1
-  \langle-y,x\rangle\cdot \langle-1,1\rangle dt &+ \int_0^1 \langle-y,x\rangle\cdot
+  &= \int_0^1 \langle-y,x\rangle\cdot \langle1,0\rangle dt &&+ \int_0^1
+  \langle-y,x\rangle\cdot \langle-1,1\rangle dt &&+ \int_0^1 \langle-y,x\rangle\cdot
   \langle0,-1\rangle dt\\
-  &= \int_0^1 \langle-(0),(t+0)\rangle\cdot \langle1,0\rangle dt &+ \int_0^1
-  \langle-(t+0),(1-t)\rangle\cdot \langle-1,1\rangle dt &+ \int_0^1
+  &= \int_0^1 \langle-(0),(t+0)\rangle\cdot \langle1,0\rangle dt &&+ \int_0^1
+  \langle-(t+0),(1-t)\rangle\cdot \langle-1,1\rangle dt &&+ \int_0^1
   \langle-(1-t),0\rangle\cdot \langle0,-1\rangle dt\\
-  &= \int_0^1 0 dt &+ \int_0^1 (t+0)+(1-t)dt &+ \int_0^1 0 dt\\
-  &= 0 &+ 1 &+ 0 \\
+  &= \int_0^1 0 dt &&+ \int_0^1 (t+0)+(1-t)dt &&+ \int_0^1 0 dt\\
+  &= 0 &&+ 1 &&+ 0 \\
   &= 1.
-\end{array}$$
+\end{alignat*}
 \end{example}
 
 \section{Flux across a smooth curve} 
@@ -154,9 +154,9 @@ add up the small bits of flux to get the formula
 
 \begin{align*}
   \text{Flux } &= \int_C\,d\text{Flux} = \int_C\vec F\cdot \vec n \,ds = \int_C\vec
-  F\cdot \frac{\langle dy,-dx\rangle}{\sqrt{dy^2+dx^2}} \sqrt{dx^2+dy^2} 
-  = \int_C \langle M,N\rangle
-  \cdot <dy,-dx> \\&= \int_C Mdy-Ndx.
+  F\cdot \frac{\langle dy,-dx\rangle}{\sqrt{dy^2+dx^2}} \sqrt{dx^2+dy^2} \\
+  &= \int_C \langle M,N\rangle
+  \cdot <dy,-dx> = \int_C Mdy-Ndx.
 \end{align*}
   In order to use this last formula, we
 \emph{must} be traversing the curve in a counter-clockwise direction
@@ -167,7 +167,7 @@ add up the small bits of flux to get the formula
  Consider the vector field {$\vec F(x,y)=\langle-y,x\rangle$}.  The flux of
   {$\vec F$} across a circle of radius $a$ is found by first
   parametrizing the circle $C\colon r(t) = \langle a\cos t,a\sin t\rangle$.  Hence $\vec
-  r'(t) = \langle-a\sin t,a\cos t\rangle$, or $dx=-a\sin t$ and $dy = a\cos
+  r\vp(t) = \langle-a\sin t,a\cos t\rangle$, or $dx=-a\sin t$ and $dy = a\cos
   t$. Hence we have $\int_C Mdy-Ndx = \int_0^{2\pi} (-a\sin t)(a\cos t)-(a\cos
   t)(-a\sin t)dt = \int_0^{2\pi} 0 dt = 0$.  In other words, no fluid is
   moving across the curve, in or out of the region.  Notice that this
@@ -203,15 +203,19 @@ add up the small bits of flux to get the formula
   the three curves $C_1\colon\vec r_1(t) = \langle1,0\rangle t+\langle0,0\rangle$ for $0\leq t \leq 1$,
   $C_2\colon\vec r_2(t) = \langle-1,1\rangle t+\langle1,0\rangle$ for $0\leq t \leq 1$, and $C_3\colon\vec
   r_3(t) = \langle0,-1\rangle t+\langle0,1\rangle$ for $0\leq t \leq 1$. We then compute the flux of
-  $\vec F$ across $C$ as $$\begin{array}{rlll} \oint_C Mdy-Ndx &= \int_{C_1}
-    (M)(0) - (x+y)(1)dt &+ \int_{C_2} (xy)(1)-(x+y)(-1)dt &+
+  $\vec F$ across $C$ as 
+ \begin{alignat*}{3}
+    &\oint_C Mdy-Ndx\\
+    &= \int_{C_1}
+    (M)(0) - (x+y)(1)dt &&+ \int_{C_2} (xy)(1)-(x+y)(-1)dt &&+
     \int_{C_3} (xy)(-1)-(N)(0)dt\\
-    &= \int_0^1 - (t+0) dt &+ \int_0^1 (1-t)(t)+(1-t)+(t) dt &+ \int_0^1
+    &= \int_0^1 - (t+0) dt &&+ \int_0^1 (1-t)(t)+(1-t)+(t) dt &&+ \int_0^1
     (0)(1-t)(-1) dt\\
-    &= \int_0^1 - t dt &+ \int_0^1 t-t^2 + 1  dt &+ \int_0^1 0 dt\\
-    &= -\frac{1}{2} &+ \frac{1}{2}-\frac{1}{3}+1 &+ 0 \\
+    &= \int_0^1 - t dt &&+ \int_0^1 t-t^2 + 1  dt &&+ \int_0^1 0 dt\\
+    &= -\frac{1}{2} &&+ \frac{1}{2}-\frac{1}{3}+1 &&+ 0 \\
     &= \frac{2}{3}
-  \end{array}$$
+  \end{alignat*}
+
 \end{example}
 
 
@@ -348,8 +352,8 @@ $-3yz$ appear in multiple integrals (are duplicated terms), we include
 them once in the sum to obtain $f= x^2y+x^2/2-3yz+z^3/3$ as a
 potential function. This method will work if a potential exists.
 
-\begin{example}
-  \textbf{Method 2 - second example:} As another example, consider the
+\begin{example}[Method 2: second example]
+  As another example, consider the
   vector field $\vec F(x,y,z) = \langle
   xy+yz+1,x^2/2+xz-3z,xy-3y\rangle$.  The test for a gradient field
   shows $M_y=x+z=N_x$, $M_z=y=P_x$, and $N_z=x-3=P_y$, which means
@@ -383,7 +387,7 @@ First, find a potential $f$ for $\vec F$, meaning $\vec F =\nabla f$. Let
 $A=\vec r(a)$ be your starting point and $B=\vec r(b)$ be your ending
 point. The work done is simply the difference in the potential from
 $A$ to $B$.  In other words, 
-$$W =\int dW= \int_a^b \vec F \cdot \vec r'(t) \,dt =f(B)-f(A).$$ 
+$$W =\int dW= \int_a^b \vec F \cdot \vec r\vp(t) \,dt =f(B)-f(A).$$ 
 This work depends only on the starting and ending points, not the path
 chosen, so we say that the work done is independent of path.  The
 reason for the word ``potential'' has to do precisely with the fact
@@ -437,7 +441,7 @@ theorem of calculus essentially says this: if we want the integral of
 $f'(x)$ over the region $[a,b]$, then we only have to evaluate $f$ on
 the boundary of the region, the points $a$ and $b$.  The fundamental
 theorem of line integrals has the same idea: to calculate the integral
-of $\nabla f\cdot \vec r'(t)$ over a curve $C$, then it is only necessary to
+of $\nabla f\cdot \vec r\vp(t)$ over a curve $C$, then it is only necessary to
 evaluate $f$ on the boundary of the curve, the starting and ending
 points.  This idea is rather powerful---no matter what happens in the
 interior of the region (provided it stays sufficiently
@@ -482,15 +486,15 @@ Summing the approximate changes and taking a limit as $\Delta x_i\to 0$ gives
 the fundamental theorem of calculus. Notationally, this is all
 summarized as
 \begin{align*}
-f(b)-f(a) 
+&f(b)-f(a) \\
 &= f(b)-f(x_{n-1}) + f(x_{n-1})-f(x_{n-2})+\cdots + f(x_{2})-f(x_{1})+
 f(x_{1})-f(x_{a}) \\
 &= \sum f(x_i) - f(x_{i-1}) 
-= \sum\frac{f(x_i) - f(x_{i-1})}{ \Delta x_i}\Delta x_i  
-= \sum\left(\frac{\Delta y_i}{ \Delta x_i}\right)\Delta x_i  
-\approx \sum\frac{dy}{ dx}\Delta x_i 
+= \sum\frac{f(x_i) - f(x_{i-1})}{ \Delta x_i}\Delta x_i 
+= \sum\left(\frac{\Delta y_i}{ \Delta x_i}\right)\Delta x_i  \\
+&\approx \sum\frac{dy}{ dx}\Delta x_i 
 \end{align*}
-Taking limits gives us {$ f(b)-f(a) = \int_a^b f'(x)dx $}, the
+Taking limits gives us {$ f(b)-f(a) = \int_a^b f'(x)\,dx $}, the
 fundamental theorem of calculus. 
 
 \subsubsection{The Fundamental Theorem of Line Integrals}
@@ -501,7 +505,7 @@ change in {$ f $} from {$ A $} to {$ B $} is $f(B)-f(A) = f(\vec
 r(b))-f(\vec r(a))$.  The fundamental theorem of line integrals states
 that 
 $$ f(B)-f(A) = \int_C d(f\circ \vec r) = \int_C \nabla f\cdot d\vec r = \int_a^b \nabla f \cdot \vec
-r' dt. $$ 
+r\vp dt. $$ 
 
 The change density is the change in $f$ (i.e., $df$) per unit length
 $ds$ (we use arc length for length because motion is along a
@@ -510,15 +514,15 @@ curve). The change density can be written $\frac{d f}{d s} = \frac
   r)}{dt}\frac{1}{ds/dt}$ (remember $\frac {dt}{ds}=\frac{1}{ds/dt}$
 by the inverse function theorem). The chain rule gives
 $\frac{df}{dt}\frac 1 {ds/dt} = Df D\vec r \frac{1}{ds/dt} = \nabla f \cdot
-\vec r' \frac{1}{ds/dt}$. Multiplication by $ds/dt$ gives
-$\frac{df}{dt} = \nabla f \cdot \vec r'$, or in differential notation, $df = \nabla
-f \cdot \vec r' dt$.
+\vec r\vp \frac{1}{ds/dt}$. Multiplication by $ds/dt$ gives
+$\frac{df}{dt} = \nabla f \cdot \vec r\vp$, or in differential notation, $df = \nabla
+f \cdot \vec r\vp dt$.
 
 As before, begin by breaking the interval $[a,b]$ up into little
 pieces {$ a=t_0<t_1<t_2<\cdots <t_{n-1}<t_n=b $}.  Total change in $f$ is
 then
 \begin{align*}
-f(B)-f(A) 
+&f(B)-f(A) \\
 &= f(\vec r(b))-f(\vec r(t_{n-1})) + f(\vec r(t_{n-1}))-f(\vec
 r(t_{n-2})) +\cdots + f(\vec r(t_{1}))-f(\vec r(t_{a})) \\
 &= \sum f(\vec r(t_i)) - f(\vec r(t_{i-1})) 
@@ -526,11 +530,11 @@ r(t_{n-2})) +\cdots + f(\vec r(t_{1}))-f(\vec r(t_{a})) \\
 &= \sum\frac{\Delta(f\circ \vec r)}{ \Delta t_i}\Delta t_i  
 = \sum (D(f\circ \vec r)(c_i)) \Delta t_i 
 = \sum DfD\vec r \Delta t_i 
-= \sum \nabla f\cdot \vec r' \Delta t_i, 
+= \sum \nabla f\cdot \vec r\vp \Delta t_i, 
 \end{align*}
 where the $c_i$ points are again given by the mean value theorem.  Taking
 limits gives us the fundamental theorem of line integrals: $
-f(B)-f(A)= \int_C \nabla f\cdot \vec r'dt = \int_C\nabla f\cdot d\vec r $.
+f(B)-f(A)= \int_C \nabla f\cdot \vec r\vp dt = \int_C\nabla f\cdot d\vec r $.
 
 \subsection{``Nice'' sets}
 \label{sec:nice-sets}
@@ -547,7 +551,7 @@ statement being true implies that the second statement is true).  A
 label on the arrow means that the condition has to be satisfied for
 the implication to be hold.  The definitions of the terms are in the
 book (or you can ask me). 
-\begin{figure}[h]
+\begin{figure}[H!]
   \centering
  \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
     \matrix (m) [matrix of math nodes, row sep=8em,
