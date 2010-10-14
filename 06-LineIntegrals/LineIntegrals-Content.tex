@@ -11,15 +11,17 @@ moments, moments of inertia, and radii of gyration.
 
 \section{Line Integrals}
 
+\prepproblems{15.2: 3, 19, 64}%
 The integral $\int_a^b f(x)dx$ is an integral in the plane of a function
 $y=f(x)$ over the interval $(a,b)$.  This integral gives the area of
 the region above the interval (assuming $f\geq 0$).  The interval $(a,b)$
 can be parametrized as the curve $C\colon\vec r(t)= \langle x,0\rangle, a\leq x\leq
 b$, and arc length can be computed using $\int_C ds = \int_a^b |\vec
-r'(x)|dx = \int_a^b 1 dx = b-a$. Notice that $ds=dx$ on the interval. A
+r\vp(x)|dx = \int_a^b 1 dx = b-a$. Notice that $ds=dx$ on the interval. A
 little piece of area $dA$ is width $ds$ times height $f$, so area can
-be computed using the integral $\int_C dA = \int_C f ds = \int_a^b f(x)|\vec
-r^\prime(x)|dx = \int_a^b f(x) dx$. 
+be computed using the integral 
+$$\int_C dA = \int_C f ds = \int_a^b f(x)|\vec
+r^\prime(x)|dx = \int_a^b f(x) dx.$$
 
 To find the area of a metal sheet that has height $z=f(x,y) $ over a
 curve $ \vec r(t)=\langle x(t),y(t)\rangle $, we approximate the area by breaking
@@ -62,6 +64,7 @@ $\int_{-1}^{2}(t+2)(t^2+2)\sqrt{(1)^2+(2t)^2}\,dt
 = \int_{-1}^{2} (t+2)(t^2+2)\sqrt{1+4t^2}\,dt$. Solving this integral is
 rather time consuming, and technology will quickly get an answer.
 \end{example}
+
 
 Please spend some time sharpening your integration skills (in
 particular $u$ substitution and integration by parts), but do not
@@ -174,7 +177,7 @@ the weight attached to each point is $\frac{ds}{s}$, the proportion of
 arc length corresponding to each point.
 
 \subsection{Density and Mass}
-
+\prepproblems{15.2: 23}%
 A density is the measure of a quantity per unit something. The
 derivative $\frac{dy}{dx}$ is a measure of change in $y$ per unit
 change in $x$. A change $dy$ of a function for some given change $dx$
@@ -225,7 +228,6 @@ gives $m=\int_C \delta \,ds$.  In differential notation, we write $dm = \delta d
  so $m=\int_C dm$ (mass is found by adding up little bits of mass).  
 
 \subsection{Center of Mass and First Moments}
-
 The center of mass of an object is the weighted average of the
 $(x,y,z)$ values where the weights are given by the proportion of mass
 $\frac{dm}{m}$ corresponding to each region. The integral formula is
@@ -253,7 +255,7 @@ mathematics, however the language used in each field is slightly
 different. Wikipedia has a wealth of information about this topic.
 
 \subsection{Inertia}
-
+\prepproblems{15.2: 71}%
 Kinetic energy of a moving object is $\displaystyle KE=\frac{1}{2}
 mv^2$, where $m$ is the mass and $v$ is the velocity. Imagine a
 particle moving in a circular path of radius $r$ about some axis.  Let
@@ -330,7 +332,9 @@ terms of t that you can evaluate.  This practice will make parts of
 the next two units much easier.
 
 
-\subsection{Examples}
+\subsection{Big Example}
+\prepproblems{Make up your own curve and density function and calculate
+  all of these quantities}%
 Here is an example of each idea with a single curve. When you create
 your lesson plan, I suggest that you focus on one particular space
 curve, density, and function.  Then show how all the formulas are
@@ -338,7 +342,7 @@ developed from there.
 
 Consider the elliptical helix $C\colon\vec r (t) = \langle3\sin t, 4\cos t,
 t\rangle$ for $0\leq t\leq 2\pi$.  The arc length differential is $$ds = |\vec
-r'(t)|dt = \sqrt{(3\cos t)^2 + (-4\sin t)^2+1^2}dt = \sqrt{9\cos^2
+r\vp(t)|dt = \sqrt{(3\cos t)^2 + (-4\sin t)^2+1^2}dt = \sqrt{9\cos^2
 t+16\sin^2 t+1}dt.$$ Arc length is then  $$s=\int_C ds =
 \int_{0}^{2\pi}\sqrt{9\cos^2 t+16\sin^2 t+1}dt.$$
 

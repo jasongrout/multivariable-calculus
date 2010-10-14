@@ -55,6 +55,8 @@
 \renewcommand\marginpar[1]{\-\oldmarginpar{\raggedright\footnotesize #1}}
 %\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]{\raggedright\footnotesize #1}}
 
+\newcommand{\prepproblems}[1]{\marginpar{\fbox{\parbox{\marginparwidth}{\textbf{Preparation Problems} #1}}}}
+
 \renewcommand{\thefootnote}{\roman{footnote}}
 \newcommand{\note}[1]{\footnote{#1}\marginpar{\fbox{\textbf{\thefootnote}}}}
 %%%%%%%To make all notes ignored, uncomment the following command.

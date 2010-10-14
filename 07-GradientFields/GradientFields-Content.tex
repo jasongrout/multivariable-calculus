@@ -6,7 +6,7 @@ This chapter covers the following ideas.
 \input{07-GradientFields/GradientFields-Objectives}%$
 
 \section{Work}
-
+\prepproblems{15.2:  27, 35, 80}%
 If a constant force $\vec F$ acts on an object through a displacement
 in a straight line, then work is {$ W= \vec F\cdot \vec r $} (we use the
 dot product).  If the displacement is not linear or the force is not
@@ -121,8 +121,8 @@ to (0,1), we write $C_2\colon\vec r_2(t) = \langle-1,1\rangle t+\langle1,0\rangl
 \end{alignat*}
 \end{example}
 
-\section{Flux across a smooth curve} 
-
+\section{Flux across a smooth curve}
+\prepproblems{Calculate \emph{flux} for curves and fields in 15.2:  27, 35}%
 Any simple closed curve (piecewise smooth, doesn't cross itself, and
 starts and ends at the same point) divides the plane into two regions,
 which we will call the inside and outside of the curve. Just as flow
@@ -231,8 +231,8 @@ a unit tangent vector to $C$.
 n$ is a unit normal vector to $C$ and $C$ is traversed counter-clockwise.
 \end{enumerate}
 
-\section{Gradients, Potentials, and the Fundamental Theorem}
-
+\section{Gradient fields}
+\prepproblems{15.1: 35, 51; 15.3: 5}%
 When the output dimension of a function is one, {i.e.,
   $f\colon{\mathbb{R}}^n\to {\mathbb{R}}^1$}, then the derivative is called
 the \define{gradient} and is written in vector form as {$\nabla f = \langle f_x,f_y,f_z\rangle$}.
@@ -244,7 +244,6 @@ in differential equations, engineering, physics, and probably many
 other places.
 
 \subsection{Test for a gradient field}
-
 If a vector field $\vec F$ is a gradient field (meaning there is an
 $f$ such that $\nabla f=\vec F$), and the potential $f$ has continuous
 second derivatives, then the second-order mixed partial derivatives
@@ -388,8 +387,9 @@ field that there is no potential.  Notice that $P_x=0$ and $M_z=y$
 are not equal, which means that $\vec F$ is not a gradient field.
 \end{example}
 
-\subsection{The Fundamental Theorem of Line Integrals (why potentials
+\section{The Fundamental Theorem of Line Integrals (why potentials
 are useful)}
+\prepproblems{15.3: 15(b), 25}
 When a vector field is a gradient field, there is a simple way to
 compute the work done by $\vec F$ along a curve $\vec r(t)$, $a\leq t\leq b$.
 First, find a potential $f$ for $\vec F$, meaning $\vec F =\nabla f$. Let
@@ -457,7 +457,7 @@ interior of the region (provided it stays sufficiently
 nice), as long as the boundary stays the same, the integral will be
 the same.
 
-\subsection{The Fundamental Theorem of Line Integrals}
+\subsection{Generalizing the Fundamental Theorem of Calculus}
 
 The remainder of this section deals with explaining exactly why the
 fundamental theorem of line integrals works. Essentially, it is an
