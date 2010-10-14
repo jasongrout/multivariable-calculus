@@ -235,11 +235,11 @@ n$ is a unit normal vector to $C$ and $C$ is traversed counter-clockwise.
 
 When the output dimension of a function is one, {i.e.,
   $f\colon{\mathbb{R}}^n\to {\mathbb{R}}^1$}, then the derivative is called
-the gradient and is written in vector form as {$\nabla f = \langle f_x,f_y,f_z\rangle$}.
+the \define{gradient} and is written in vector form as {$\nabla f = \langle f_x,f_y,f_z\rangle$}.
 If a vector field {$\vec F = \langle M,N,P\rangle$} is the gradient of some
 function {$f$} (so that {$\nabla f= \vec F$}), then we say that the vector
-field {$\vec F$} is a gradient field, and the function {$f$} is called
-a potential for {$\vec F$}. The potential of a gradient field appears
+field {$\vec F$} is a \define{gradient field}, and the function {$f$} is called
+a \define{potential} for {$\vec F$}. The potential of a gradient field appears
 in differential equations, engineering, physics, and probably many
 other places.
 
@@ -286,7 +286,8 @@ The vector field $\vec F=\langle x,z,y\rangle$ is
   $f=x^2/2+yz$ gives $\nabla f = \langle x,z,y\rangle=\vec F$.
 \end{example}
 
-\textbf{Exact differential forms:} A \emph{differential form} is an
+\begin{definition}[Exact differential forms]
+A \define{differential form} is an
 expression of the form {$Mdx+Ndy+Pdz$}.  On the other hand, if we have
 a function $f(x,y,z)$, the differential of $f$ is 
 $$df = Df d\vec x
@@ -294,9 +295,10 @@ $$df = Df d\vec x
 \end{bmatrix}\begin{bmatrix}dx\\dy\\dz\end{bmatrix}=f_x dx+f_y dy+f_z
 dz.$$ If a differential form is actually the differential of a
 function {$f$}, then the differential form is said to be
-\textbf{exact}.  The function {$f$} is called a potential for the
+\define{exact}.  The function {$f$} is called a \define{potential} for the
 differential form.  Notice that {$Mdx+Ndy+Pdz$} is exact if and only
 if {$\vec F = \langle M,N,P\rangle$} is a gradient field.
+\end{definition}
 
 \begin{example}
 The differential form $-ydx+xdy-yxdz$ is not
@@ -314,11 +316,13 @@ Ndy$, and $\int Pdz$.  Essentially, this is undoing the total
 derivative. The following examples illustrate two methods of doing so.
 The first method matches the book, while the second is quicker route which
 simplifies the general idea.
-
-\textbf{Method 1:} Consider the vector field $\vec
+\begin{example} Consider the vector field $\vec
 F=\langle2xy+x,x^2-3z,-3y+z^2\rangle$. Since $D\vec F$ is continuous and
 $M_y=2x=N_x$, $M_z=0=P_x$, and $N_z=-3=P_y$, the vector field $\vec F$ is a
-gradient field, so $\vec F$ has a potential function $f$, and $f_x=M$, $f_y=N$, and $f_z=P$.
+gradient field, so $\vec F$ has a potential function $f$, and $f_x=M$,
+$f_y=N$, and $f_z=P$.  To find $f$, we use two methods.
+
+\textbf{Method 1:} In this method, we do several integrals, one after another.
 \begin{enumerate}
 \item Integrate $\int f_x\,dx=\int M\,dx$ to get $\int 2xy+x\,dx =
   x^2y+x^2/2+A(y,z)=f$, where $A$ is a constant with respect to $x$,
@@ -351,8 +355,9 @@ summing these integrals, ignoring duplicated terms. Since $x^2y$ and
 $-3yz$ appear in multiple integrals (are duplicated terms), we include
 them once in the sum to obtain $f= x^2y+x^2/2-3yz+z^3/3$ as a
 potential function. This method will work if a potential exists.
+\end{example}
 
-\begin{example}[Method 2: second example]
+\begin{example}
   As another example, consider the
   vector field $\vec F(x,y,z) = \langle
   xy+yz+1,x^2/2+xz-3z,xy-3y\rangle$.  The test for a gradient field
@@ -366,8 +371,12 @@ potential function. This method will work if a potential exists.
   to obtain $f(x,y,z) = \frac 1 2 x^2y+xyz+x-3yz$.  Again, please
   check the answer.
 \end{example}
-When using the second approach, any time a term contains more than one
-variable, that term will appear in more than one integral. For the
+When using the second method, any time a term contains more than one
+variable, that term will appear in more than one integral. We can use
+this to see if a vector field is a gradient field.
+
+\begin{example}
+For the
 vector field $\vec F = \langle yz,xz,yz\rangle$, the integral $\int Mdx = xyz$
 contains $x,y,$ and $z$, so the integral with respect to $y$ and $z$
 must also contain this term.  We compute $\int Ndy = xyz$ and $\int Pdz =
@@ -377,7 +386,7 @@ variables but does not appear as a term in the third integral, we
 should be able to show using the test for a gradient vector
 field that there is no potential.  Notice that $P_x=0$ and $M_z=y$
 are not equal, which means that $\vec F$ is not a gradient field.
-
+\end{example}
 
 \subsection{The Fundamental Theorem of Line Integrals (why potentials
 are useful)}
@@ -423,7 +432,7 @@ work is independent of path (this ``conservation of energy'' is what
 leads to the term ``conservative field'').  For vector fields defined
 on a ``nice'' set, like all of $\mathbb{R}^2$ or all of
 $\mathbb{R}^3$, these properties are all equivalent.  In more esoteric
-cases (that don't come up very often in practice), these properties
+cases (that may not come up very often in practice), these properties
 may not be equivalent.  See Section~\ref{sec:nice-sets} for a
 discussion of what a ``nice'' set means and what happens when you have
 a vector field defined on a set that is not so nice.
@@ -539,19 +548,15 @@ f(B)-f(A)= \int_C \nabla f\cdot \vec r\vp dt = \int_C\nabla f\cdot d\vec r $.
 \subsection{``Nice'' sets}
 \label{sec:nice-sets}
 
+
+
 Here we will discuss in (brief) technical detail what a ``nice'' set
 is and what goes wrong when you have a set that is not so nice.  This
 would all be explored in much more detail in an advanced calculus, real
 analysis, or algebraic topology class.
 
-Let $\vec F=\langle M,N,P\rangle$ be continuous on an open set $D$.  In the
-following chart, the arrows represent implications (i.e., if there is
-an arrow from one statement pointing to another, then the first
-statement being true implies that the second statement is true).  A
-label on the arrow means that the condition has to be satisfied for
-the implication to be hold.  The definitions of the terms are in the
-book (or you can ask me). 
-\begin{figure}[H!]
+
+\begin{figure}[t]
   \centering
  \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
     \matrix (m) [matrix of math nodes, row sep=8em,
@@ -569,10 +574,19 @@ book (or you can ask me).
     (m-2-2) edge [bend left=10] (m-1-2);
     
 \end{tikzpicture}
-  
   \caption{Equivalences for nice sets}
   \label{fig:equivalences}
 \end{figure}
+
+
+Let $\vec F=\langle M,N,P\rangle$ be continuous on an open set $D$.
+In the diagram in Figure~\ref{fig:equivalences}, the arrows represent
+implications (i.e., if there is an arrow from one statement pointing
+to another, then the first statement being true implies that the
+second statement is true).  A label on the arrow means that the
+condition has to be satisfied for the implication to be hold.  The
+definitions of the terms are in the book (or you can ask me).
+
 
 
 Using terms from the book, a ``nice'' set is a set that is open,

@@ -20,7 +20,7 @@ r^\prime(x)|dx = \int_a^b f(x) dx$.
 To find the area of a metal sheet that has height $z=f(x,y) $ over a
 curve $ \vec r(t)=\langle x(t),y(t)\rangle $, we approximate the area by breaking
 the curve up into little pieces $\Delta s$. The length of each piece is
-approximated by {$ \Delta s \approx \sqrt{\Delta x^2 +\Delta y^2} =|\vec r'(t)|dt$}. The
+approximated by {$ \Delta s \approx \sqrt{\Delta x^2 +\Delta y^2} =|\vec r\vp(t)|dt$}. The
 height along a small portion of the sheet can be approximated by
 $f(\vec r(t))$. A small piece of area $\Delta A$ is approximately $f\Delta s
 $. To find the total area, we sum the approximate areas $A\approx \sum f\Delta s$.
@@ -40,7 +40,7 @@ in understanding how energy is used to generate power.
  To find the area of a sheet of metal above the unit circle with
   height given by $f=x^2+4y^2$, first parametrize the curve $C\colon \vec
   r(t) = \langle\cos t,\sin t\rangle$, $0\leq t\leq 2\pi$. Then compute $A = \int_C f\,ds =
-  \int_0^{2\pi} ((\cos t)^2 + 4 (\sin t)^2) |\langle-\sin t,\cos t\rangle|\,dt =
+  \int_0^{2\pi} ((\cos t)^2 + 4 (\sin t)^2) \,|\langle-\sin t,\cos t\rangle|\,dt =
   \int_0^{2\pi} (\cos^2 t + 4 \sin^2 t) (1)\,dt$. To solve this integral,
   we can use integration tables, technology, or the trig identities
   $\cos^2 t= \frac{1+\cos 2t}{2}$ and $\sin^2 t = \frac{1-\cos
@@ -132,7 +132,7 @@ $AV\approx \sum_{i=1}^n \frac{\Delta s_{i}}{s}f(\vec r(t_i))
 approaches zero, we obtain the integral formula $AV=\frac{1}{s}\int_C
 f(\vec r(t))\,ds$. Often people will just write $AV=\frac{1}{s}\int_C f
 \,ds$, where it is implied that you replace $x,y,z$ with what they are
-in terms of $t$.  Remember that $ds = |\vec r'(t)|dt$. 
+in terms of $t$.  Remember that $ds = |\vec r\vp(t)|dt$. 
 
 \subsubsection{Average Value by finding a constant that can be used to
 replace $f$}
