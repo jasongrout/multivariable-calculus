@@ -32,12 +32,17 @@
 
 \newcommand{\remake}{\tikzset{external/force remake}}
 
-\newcommand{\marginpartop}[1]{\marginpar{\vtop{%
-  \vskip0pt
-  \hbox{%
-    #1%
-  }%
-}}}
+\newcommand\marginpartop[1]{\leavevmode\marginpar{#1}}
+
+\newcommand{\aligntop}[1]{\vtop{\vskip-1ex\hbox{ #1}}}
+
+
+%\newcommand{\marginpartop}[1]{\leave\marginpar{\vtop{%
+%  \vskip0pt
+%  \hbox{%
+%    #1%
+%  }}%
+%}}}
 
 \newcommand{\myscale}{1}
 
@@ -51,8 +56,8 @@
 \usepackage{sagetex}
 
 
-\let\oldmarginpar\marginpar
-\renewcommand\marginpar[1]{\-\oldmarginpar{\raggedright\footnotesize #1}}
+%\let\oldmarginpar\marginpar
+%\renewcommand\marginpar[1]{\-\oldmarginpar{\raggedright\footnotesize #1}}
 %\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]{\raggedright\footnotesize #1}}
 
 \newcommand{\prepproblems}[1]{\marginpar{\fbox{\parbox{\marginparwidth}{\textbf{Preparation Problems} #1}}}}
@@ -258,6 +263,10 @@ The source for this work is available at \url{http://github.com/jasongrout/multi
 \include{08-Optimization/Optimization-Problems}
 \restoregeometry
 
+\include{09-DoubleIntegrals/DoubleIntegrals-Content}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+\include{09-DoubleIntegrals/DoubleIntegrals-Problems}
+\restoregeometry
 
 %\backmatter
 
