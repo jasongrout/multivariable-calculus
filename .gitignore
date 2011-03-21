@@ -4,7 +4,6 @@
 *.bbl
 *.blg
 *.toc
-*.sout
 *.out
 *.nav
 *.snm
@@ -22,7 +21,6 @@ figures/*.dpth
 /*.sage
 /*.py
 /multivariable-calculus.pdf
-sage-plots-for-*
 # Ignore editor backup files
 *~
 \#*\#
